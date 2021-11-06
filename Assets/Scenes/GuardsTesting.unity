@@ -324,7 +324,6 @@ GameObject:
   - component: {fileID: 659576958}
   - component: {fileID: 659576957}
   - component: {fileID: 659576956}
-  - component: {fileID: 659576955}
   m_Layer: 0
   m_Name: NavPoint
   m_TagString: Untagged
@@ -332,19 +331,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &659576955
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659576954}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &659576956
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -512,7 +498,6 @@ GameObject:
   - component: {fileID: 719306090}
   - component: {fileID: 719306089}
   - component: {fileID: 719306088}
-  - component: {fileID: 719306087}
   m_Layer: 0
   m_Name: NavPoint2
   m_TagString: Untagged
@@ -520,19 +505,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &719306087
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719306086}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &719306088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1352,7 +1324,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958320194}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

@@ -12,6 +12,8 @@ public class Guard : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fow; // for player detection
 
+    private bool _isCollidedWithPlayer = false;
+
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -24,7 +26,7 @@ public class Guard : MonoBehaviour
         var thiefFound = new ThiefFound(this);
 
         // Transitions add (At) or any-transition
-        _stateMachine.AddAnyTransition(thiefFound, () => _fow.PlayerInRange);
+        _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer));
 
         // redefinition of StateMachine.AddTransition method (only for better code reading)
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
@@ -43,5 +45,13 @@ public class Guard : MonoBehaviour
     void Update()
     {
         _stateMachine.Tick();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Equals("Player"))
+        {
+            _isCollidedWithPlayer = true;
+        }
     }
 }
