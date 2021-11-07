@@ -22,7 +22,7 @@ public class Guard : MonoBehaviour
         _stateMachine = new StateMachine();
 
         // States instantiation
-        var guarding = new Guarding(this, _navMeshAgent, points);
+        var randomGuarding = new RandomGuarding(this, _navMeshAgent, points);
         var thiefFound = new ThiefFound(this);
 
         // Transitions add (At) or any-transition
@@ -34,7 +34,7 @@ public class Guard : MonoBehaviour
         // TODO: Definition of condition functions for transitions
 
         // Set the initial state
-        _stateMachine.SetState(guarding);
+        _stateMachine.SetState(randomGuarding);
     }
 
     void Start()

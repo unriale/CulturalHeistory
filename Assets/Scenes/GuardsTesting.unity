@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 719306089}
   - component: {fileID: 719306088}
   m_Layer: 0
-  m_Name: NavPoint2
+  m_Name: NavPoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 900611774}
   - component: {fileID: 900611773}
   m_Layer: 0
-  m_Name: NavPoint2 (2)
+  m_Name: NavPoint 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 1598278390}
   - component: {fileID: 1598278389}
   m_Layer: 0
-  m_Name: NavPoint2 (1)
+  m_Name: NavPoint 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,6 +1395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 6
   runningSpeed: 13
+  IsStaying: 0
   IsRunning: 0
   IsWalking: 0
 --- !u!143 &1869967473
@@ -1428,6 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRadius: 0
+  noiseValue: 0
   walkNoiseRadius: 5
   runNoiseRadius: 10
 --- !u!1 &1958320194
@@ -1584,6 +1586,8 @@ MonoBehaviour:
   points:
   - {fileID: 659576958}
   - {fileID: 719306090}
+  - {fileID: 1598278388}
+  - {fileID: 900611772}
 --- !u!114 &1958320202
 MonoBehaviour:
   m_ObjectHideFlags: 0
