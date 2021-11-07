@@ -100,7 +100,8 @@ public class Guard : MonoBehaviour
         if (other.gameObject.tag.Equals("FoN"))
         {
             FieldOfNoise fon = other.gameObject.GetComponent<FieldOfNoise>();
-            NoiseValue = fon.noiseValue;
+            float radius = fon.currentRadius;
+            NoiseValue = radius / (10 * Vector3.Distance(other.gameObject.transform.position, transform.position));
         }
     }
 

@@ -28,14 +28,7 @@ public class FieldOfNoise : MonoBehaviour
     private void Update()
     {
         currentRadius = GetRadius();
-        ChangeNoiseValue();
         _sphereCollider.radius = currentRadius;
-    }
-
-    private void ChangeNoiseValue()
-    {
-        noiseValue = currentRadius == 0 ? 0 : 1 / currentRadius; // !! WRONG -> More Radius = Less Value, we want the opposite
-        print($"Noise value is {noiseValue}");
     }
 
     private float GetRadius()
