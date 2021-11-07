@@ -3,8 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// REMEMBER: FoN object must be on a different layermask from the player or the collisions are fucked up
+// REMEMBER: FoN object must have a rigidbody component kinematic - this allow to prevent Collision Trigger Bubbling
+[RequireComponent(typeof(SphereCollider))]
 public class FieldOfNoise : MonoBehaviour
 {
+    [SerializeField] private Movement movement;
+
     [HideInInspector]
     public float currentRadius;
     [HideInInspector]
@@ -13,17 +18,18 @@ public class FieldOfNoise : MonoBehaviour
     public float walkNoiseRadius;
     public float runNoiseRadius;
 
-    private Movement movement;
+    private SphereCollider _sphereCollider;
 
     private void Awake()
     {
-        movement = GetComponent<Movement>();
+        _sphereCollider = GetComponent<SphereCollider>();
     }
 
     private void Update()
     {
         currentRadius = GetRadius();
         ChangeNoiseValue();
+        _sphereCollider.radius = currentRadius;
     }
 
     private void ChangeNoiseValue()

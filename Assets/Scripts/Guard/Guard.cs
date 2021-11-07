@@ -13,6 +13,7 @@ public class Guard : MonoBehaviour
     private FieldOfView _fow; // for player detection
 
     private bool _isCollidedWithPlayer = false;
+    private bool _isAlerted = false;
 
     private void Awake()
     {
@@ -49,9 +50,21 @@ public class Guard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Equals("Player"))
+        if (other.gameObject.tag.Equals("Player"))
         {
             _isCollidedWithPlayer = true;
+        }
+        if (other.gameObject.tag.Equals("FoN"))
+        {
+            _isAlerted = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name.Equals("FoN"))
+        {
+            _isAlerted = false;
         }
     }
 }
