@@ -11,11 +11,13 @@ public class Movement : MonoBehaviour
     private float minMagnitude = 0.01f;
     private float speed = 0;
 
+    [HideInInspector] public bool IsStaying, IsRunning, IsWalking;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
+
 
     private void Update()
     {
@@ -26,18 +28,53 @@ public class Movement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        if (Input.GetKey(KeyCode.LeftShift))
-            speed = runningSpeed;
-        else
-            speed = walkSpeed;
 
+        if (Running()) ChangeStateToRun();
+        else if (Walking()) ChangeStateToWalk();
+        else { ChangeStateToStay(); }
+
+        StartMoving(horizontalInput, verticalInput);
+    }
+
+    private void StartMoving(float horizontalInput, float verticalInput)
+    {
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         controller.SimpleMove(movementDirection * speed);
 
         Vector3 normalizedMovementDirection = movementDirection.normalized;
-        if (normalizedMovementDirection.magnitude > minMagnitude) 
+        if (normalizedMovementDirection.magnitude > minMagnitude)
         {
             transform.forward = normalizedMovementDirection;
         }
+    }
+
+    private void ChangeStateToStay()
+    {
+        IsWalking = IsRunning = false;
+        IsStaying = !IsWalking && !IsRunning;
+    }
+
+    private void ChangeStateToWalk()
+    {
+        speed = walkSpeed;
+        IsWalking = true;
+        IsStaying = IsRunning = false;
+    }
+
+    private void ChangeStateToRun()
+    {
+        speed = runningSpeed;
+        IsRunning = true;
+        IsStaying = IsWalking = false;
+    }
+
+    private bool Walking()
+    {
+        return controller.velocity != Vector3.zero;
+    }
+
+    private bool Running()
+    {
+        return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && controller.velocity != Vector3.zero;
     }
 }
