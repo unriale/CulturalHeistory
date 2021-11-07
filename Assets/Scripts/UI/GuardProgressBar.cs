@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine.UI;
 
 public class GuardProgressBar : MonoBehaviour
 {
+    #region Events
+    public static event Action ProgressBarResetted;
+    public static event Action ProgressBarFilled;
+    #endregion
+
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image sliderImage;
 
@@ -27,6 +33,28 @@ public class GuardProgressBar : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        IncreasingAlert.IncreaseAlertValue += OnIncreaseAlertValue;
+        DecreasingAlert.DecreaseAlertValue += OnDecreaseAlertValue;
+    }
+
+    private void OnDisable()
+    {
+        IncreasingAlert.IncreaseAlertValue -= OnIncreaseAlertValue;
+        DecreasingAlert.DecreaseAlertValue -= OnDecreaseAlertValue;
+    }
+
+    private void OnIncreaseAlertValue(float amount)
+    {
+        IncreaseProgress(amount);
+    }
+
+    private void OnDecreaseAlertValue(float amount)
+    {
+        DecreaseProgress(amount);
+    }
+
     private void IncreaseProgress(float amount)
     {
         if (_canIncrease)
@@ -39,11 +67,21 @@ public class GuardProgressBar : MonoBehaviour
                 sliderImage.enabled = true;
             }
 
-            float newVal = _value + amount / 10.0f;
-            _value = Mathf.Clamp(newVal, 0.0f, 1.0f);
+            _value = _value + amount / 10.0f;
 
             sliderImage.fillAmount = _value;
 
+            if(_value >= 1.0f)
+            {
+                StopAllCoroutines();
+
+                _canIncrease = true;
+                _value = 1.0f;
+                sliderImage.fillAmount = 1.0f;
+
+                ProgressBarFilled?.Invoke();
+                return;
+            }
             StartCoroutine(WaitForSmoothIncrease(_incDecDelay));
         }   
     }
@@ -53,16 +91,21 @@ public class GuardProgressBar : MonoBehaviour
         if (_canDecrease)
         {
             _canDecrease = false;
-            if (_value == 0.0f)
+            if (_value <= 0.0001f)
             {
+                StopAllCoroutines();
+
                 backgroundImage.enabled = false;
                 sliderImage.enabled = false;
+                _value = 0.0f;
+                _canDecrease = true;
+                sliderImage.fillAmount = 0.0f;
 
+                ProgressBarResetted?.Invoke(); // Invoke Event for Guard
                 return;
             }
 
-            float newVal = _value - amount / 10.0f;
-            _value = Mathf.Clamp(newVal, 0.0f, 1.0f);
+            _value = _value - amount / 10.0f;
 
             sliderImage.fillAmount = _value;
 

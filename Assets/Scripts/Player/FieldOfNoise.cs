@@ -34,7 +34,7 @@ public class FieldOfNoise : MonoBehaviour
 
     private void ChangeNoiseValue()
     {
-        noiseValue = currentRadius == 0 ? 0 : 1 / currentRadius;
+        noiseValue = currentRadius == 0 ? 0 : 1 / currentRadius; // !! WRONG -> More Radius = Less Value, we want the opposite
         print($"Noise value is {noiseValue}");
     }
 

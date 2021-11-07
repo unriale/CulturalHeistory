@@ -22,6 +22,7 @@ public class RandomGuarding : IState
     public void OnEnter()
     {
         _navMeshAgent.enabled = true;
+        _navMeshAgent.isStopped = false;
         indexPoint = Random.Range(0, _navPoints.Length);
         _navMeshAgent.SetDestination(_navPoints[indexPoint].position);
     }
