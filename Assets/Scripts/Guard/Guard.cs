@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
+    [SerializeField] private GuardProgressBar progressBar;
     [SerializeField] private Transform[] points;
 
     private StateMachine _stateMachine;
@@ -29,8 +30,8 @@ public class Guard : MonoBehaviour
         // States instantiation
         var randomGuarding = new RandomGuarding(this, _navMeshAgent, points);
         var thiefFound = new ThiefFound(this);
-        var increasingAlert = new IncreasingAlert(this,_navMeshAgent);
-        var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.02f); // TBD the amount of the decrease
+        var increasingAlert = new IncreasingAlert(this,_navMeshAgent, progressBar);
+        var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.02f, progressBar); // TBD the amount of the decrease
 
         // Transitions add (At) or any-transition
         At(randomGuarding, increasingAlert, IsGuardAlerted());
@@ -52,20 +53,6 @@ public class Guard : MonoBehaviour
         _stateMachine.SetState(randomGuarding);
     }
 
-    private void OnEnable()
-    {
-        // Listen to Events
-        GuardProgressBar.ProgressBarResetted += OnProgressBarReset;
-        GuardProgressBar.ProgressBarFilled += OnProgressBarFilled;
-    }
-
-    private void OnDisable()
-    {
-        // Stop Listening to Events
-        GuardProgressBar.ProgressBarResetted -= OnProgressBarReset;
-        GuardProgressBar.ProgressBarFilled -= OnProgressBarFilled;
-    }
-
     void Start()
     {
        
@@ -76,12 +63,12 @@ public class Guard : MonoBehaviour
         _stateMachine.Tick();
     }
 
-    private void OnProgressBarReset()
+    public void OnProgressBarReset()
     {
         _isAlertResetted = true;
     }
 
-    private void OnProgressBarFilled()
+    public void OnProgressBarFilled()
     {
         _isAlertFilled = true;
     }

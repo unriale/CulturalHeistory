@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 public class GuardProgressBar : MonoBehaviour
 {
-    #region Events
-    public static event Action ProgressBarResetted;
-    public static event Action ProgressBarFilled;
-    #endregion
-
+    [SerializeField] private Guard guard;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image sliderImage;
 
@@ -33,29 +29,7 @@ public class GuardProgressBar : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        IncreasingAlert.IncreaseAlertValue += OnIncreaseAlertValue;
-        DecreasingAlert.DecreaseAlertValue += OnDecreaseAlertValue;
-    }
-
-    private void OnDisable()
-    {
-        IncreasingAlert.IncreaseAlertValue -= OnIncreaseAlertValue;
-        DecreasingAlert.DecreaseAlertValue -= OnDecreaseAlertValue;
-    }
-
-    private void OnIncreaseAlertValue(float amount)
-    {
-        IncreaseProgress(amount);
-    }
-
-    private void OnDecreaseAlertValue(float amount)
-    {
-        DecreaseProgress(amount);
-    }
-
-    private void IncreaseProgress(float amount)
+    public void IncreaseProgress(float amount)
     {
         if (_canIncrease)
         {
@@ -79,14 +53,14 @@ public class GuardProgressBar : MonoBehaviour
                 _value = 1.0f;
                 sliderImage.fillAmount = 1.0f;
 
-                ProgressBarFilled?.Invoke();
+                guard.OnProgressBarFilled(); // Call ProgressBar Filled
                 return;
             }
             StartCoroutine(WaitForSmoothIncrease(_incDecDelay));
         }   
     }
 
-    private void DecreaseProgress(float amount)
+    public void DecreaseProgress(float amount)
     {
         if (_canDecrease)
         {
@@ -101,7 +75,7 @@ public class GuardProgressBar : MonoBehaviour
                 _canDecrease = true;
                 sliderImage.fillAmount = 0.0f;
 
-                ProgressBarResetted?.Invoke(); // Invoke Event for Guard
+                guard.OnProgressBarReset(); // Call ProgressBar Resetted
                 return;
             }
 

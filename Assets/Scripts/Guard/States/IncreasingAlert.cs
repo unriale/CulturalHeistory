@@ -6,17 +6,16 @@ using UnityEngine.AI;
 
 public class IncreasingAlert : IState
 {
-    #region UI Events
-    public static event Action<float> IncreaseAlertValue;
-    #endregion
-
+    
     private readonly Guard _guard;
     private NavMeshAgent _navMeshAgent; // Atm I'm not using it, but it might be useful for some kind of movement in this state
+    private GuardProgressBar _progressbar;
 
-    public IncreasingAlert(Guard guard, NavMeshAgent navMeshAgent)
+    public IncreasingAlert(Guard guard, NavMeshAgent navMeshAgent, GuardProgressBar progBar)
     {
         _guard = guard;
         _navMeshAgent = navMeshAgent;
+        _progressbar = progBar;
     }
 
     public void OnEnter()
@@ -31,8 +30,8 @@ public class IncreasingAlert : IState
 
     public void Tick()
     {
-        // Invoke UI Event
-        IncreaseAlertValue(_guard.NoiseValue);
+        // Invoke UI
+        _progressbar.IncreaseProgress(_guard.NoiseValue);
     }
 
 }

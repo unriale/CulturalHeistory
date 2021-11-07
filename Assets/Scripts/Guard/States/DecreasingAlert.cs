@@ -13,12 +13,14 @@ public class DecreasingAlert : IState
     private readonly Guard _guard;
     private NavMeshAgent _navMeshAgent; // Atm I'm not using it, but it might be useful for some kind of movement in this state
     private float _decreaseAmount;
+    private GuardProgressBar _progressbar;
 
-    public DecreasingAlert(Guard guard, NavMeshAgent navMeshAgent, float decreaseAmount)
+    public DecreasingAlert(Guard guard, NavMeshAgent navMeshAgent, float decreaseAmount, GuardProgressBar progBar)
     {
         _guard = guard;
         _navMeshAgent = navMeshAgent;
         _decreaseAmount = decreaseAmount;
+        _progressbar = progBar;
     }
 
     public void OnEnter()
@@ -33,7 +35,7 @@ public class DecreasingAlert : IState
 
     public void Tick()
     {
-        // Invoke UI Event
-        DecreaseAlertValue(_decreaseAmount);
+        // Invoke UI
+        _progressbar.DecreaseProgress(_decreaseAmount);
     }
 }

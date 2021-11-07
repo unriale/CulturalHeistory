@@ -1978,6 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dce3a9a7ef97a4593f6cade5996034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guard: {fileID: 1958320201}
   backgroundImage: {fileID: 518391813}
   sliderImage: {fileID: 769899768}
 --- !u!1 &1847494971
@@ -2318,11 +2319,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0eb9165689a44fa85835db0446bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 1694567298}
   points:
   - {fileID: 659576958}
   - {fileID: 719306090}
   - {fileID: 1598278388}
   - {fileID: 900611772}
+  NoiseValue: 0
 --- !u!114 &1958320202
 MonoBehaviour:
   m_ObjectHideFlags: 0
