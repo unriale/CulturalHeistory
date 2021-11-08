@@ -30,6 +30,9 @@ public class IncreasingAlert : IState
 
     public void Tick()
     {
+        // Look at noise Point
+        _guard.LookAtNoisePoint();
+
         // Invoke UI
         _progressbar.IncreaseProgress(_guard.NoiseValue);
     }

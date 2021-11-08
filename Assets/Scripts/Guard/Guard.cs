@@ -19,6 +19,8 @@ public class Guard : MonoBehaviour
     private bool _isAlertFilled = false;
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
+    [HideInInspector]
+    public Vector3 noisePoint; // noise point
 
     private void Awake()
     {
@@ -73,6 +75,13 @@ public class Guard : MonoBehaviour
         _isAlertFilled = true;
     }
 
+    public void LookAtNoisePoint()
+    {
+        Vector3 lookAtPos = noisePoint - this.transform.position;
+        Quaternion newRot = Quaternion.LookRotation(lookAtPos, this.transform.up);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRot, Time.deltaTime * 8);
+    }
+
     private bool ShouldGuarding()
     {
         if (_isAlertResetted)
@@ -83,6 +92,8 @@ public class Guard : MonoBehaviour
         return false;
     }
 
+
+    #region Collider's Trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
@@ -92,6 +103,7 @@ public class Guard : MonoBehaviour
         if (other.gameObject.tag.Equals("FoN"))
         {
             _isAlerted = true;
+            noisePoint = other.gameObject.transform.position;
         }
     }
 
@@ -113,4 +125,6 @@ public class Guard : MonoBehaviour
         }
 
     }
+    #endregion
+
 }

@@ -25,17 +25,18 @@ public class DecreasingAlert : IState
 
     public void OnEnter()
     {
-        
+
     }
 
     public void OnExit()
     {
-        
+
     }
 
     public void Tick()
     {
         // Invoke UI
         _progressbar.DecreaseProgress(_decreaseAmount);
+
     }
 }
