@@ -30,6 +30,9 @@ public class IncreasingAlert : IState
 
     public void Tick()
     {
+        // Show exclamation mark
+        _guard.ShowExclamationMark();
+
         // Look at noise Point
         _guard.LookAtNoisePoint();
 

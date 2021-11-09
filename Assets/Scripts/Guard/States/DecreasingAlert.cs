@@ -35,6 +35,9 @@ public class DecreasingAlert : IState
 
     public void Tick()
     {
+        // Reset Exclamation Mark, so that can be displayed again
+        _guard.RestExclamationMark();
+
         // Invoke UI
         _progressbar.DecreaseProgress(_decreaseAmount);
 

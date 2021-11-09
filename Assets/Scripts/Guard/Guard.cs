@@ -6,17 +6,23 @@ using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
+    [Header("UI References")]
     [SerializeField] private GuardProgressBar progressBar;
+    [SerializeField] private ExclamationMark exclamationMark;
+
+    [Header("Nav Settings")]
     [SerializeField] private Transform[] points;
 
     private StateMachine _stateMachine;
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fow; // for player detection
 
+    // Transitions Attributes
     private bool _isCollidedWithPlayer = false;
     private bool _isAlerted = false;
     private bool _isAlertResetted = false;
     private bool _isAlertFilled = false;
+
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
     [HideInInspector]
@@ -73,6 +79,16 @@ public class Guard : MonoBehaviour
     public void OnProgressBarFilled()
     {
         _isAlertFilled = true;
+    }
+
+    public void ShowExclamationMark()
+    {
+        exclamationMark.ShowExclamationMark();
+    }
+
+    public void RestExclamationMark()
+    {
+        exclamationMark.ResetExclamationMark();
     }
 
     public void LookAtNoisePoint()
