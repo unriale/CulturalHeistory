@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Canvas))]
 public class CanvasLookAtCamera : MonoBehaviour
 {
-    [SerializeField] private Transform camera;
+    [SerializeField] private new Transform camera;
     private Canvas _canvas;
     private void Awake()
     {

@@ -8,15 +8,17 @@ public class Pickup : MonoBehaviour
     [Tooltip("Time in seconds to delay destroy")]
     [SerializeField] float destroyDelay = 2f;
     [SerializeField] Treasure _treasure;
+    [SerializeField] Slot slot;
     public float PickupRadius = 2f;
 
     private bool isPickedUp = false;
     private Transform player;
 
-    private void Awake()
+    private void Start()
     {
         _treasure.currentAmount = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        slot.SetInitialTextAmount();
     }
 
     private void Update()
@@ -40,9 +42,14 @@ public class Pickup : MonoBehaviour
     {
         print("Picking up animation");
         isPickedUp = true;
-        // TODO: events for UI
-        if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++; 
+        if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++;
+        slot.UpdateAmount(GetAmountLeft(), destroyDelay);
         // TODO: VFX + SFX
         Destroy(gameObject, destroyDelay);
+    }
+
+    private int GetAmountLeft()
+    {
+        return _treasure.maxAmount - _treasure.currentAmount;
     }
 }

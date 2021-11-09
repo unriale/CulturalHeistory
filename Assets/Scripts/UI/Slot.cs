@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,27 @@ public class Slot : MonoBehaviour
         _leftAmount = transform.GetChild(1).GetComponent<Text>();
     }
 
-    private void Update()
+    public void UpdateAmount(int amount, float delay)
+    {
+        StartCoroutine(DelayUpdate(amount, delay));
+    }
+
+    IEnumerator DelayUpdate(int amount, float delay)
+    {
+        if (!_treasure) yield return null;
+        yield return new WaitForSeconds(delay);
+        _leftAmount.text = amount.ToString();
+        ActivateSlot();
+    }
+
+    private void ActivateSlot()
+    {
+        transform.GetChild(0).GetComponent<Image>().color = Color.white;
+    }
+
+    public void SetInitialTextAmount()
     {
         if (!_treasure) return;
-        _leftAmount.text = _treasure.currentAmount.ToString();
+        _leftAmount.text = _treasure.maxAmount.ToString();
     }
 }
