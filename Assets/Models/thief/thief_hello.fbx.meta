@@ -1,0 +1,846 @@
+fileFormatVersion: 2
+guid: a993794313c21094993601b153cd1db2
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 2159550556118464071
+    second: hello
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: thief_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thief_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: thief(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Reference
+      parentName: thief(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Hips
+      parentName: thief_Reference
+      position: {x: -0.000000028610227, y: 0.9999997, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftUpLeg
+      parentName: thief_Hips
+      position: {x: -0.0891, y: -0.06270004, z: 0}
+      rotation: {x: -0.0000059427043, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftLeg
+      parentName: thief_LeftUpLeg
+      position: {x: -0.000000076293944, y: -0.44878638, z: -0.000004710117}
+      rotation: {x: 0.000003608489, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftFoot
+      parentName: thief_LeftLeg
+      position: {x: -0.0000001335144, y: -0.40700957, z: -0.0000013342805}
+      rotation: {x: 0.0000023342154, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftToeBase
+      parentName: thief_LeftFoot
+      position: {x: -0.000000085830685, y: -0.06262317, z: 0.12954721}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightUpLeg
+      parentName: thief_Hips
+      position: {x: 0.0891, y: -0.06270004, z: 0}
+      rotation: {x: -0.00000556118, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightLeg
+      parentName: thief_RightUpLeg
+      position: {x: 0.000000038146972, y: -0.44878638, z: -0.00000039774676}
+      rotation: {x: 0.0000038442563, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightFoot
+      parentName: thief_RightLeg
+      position: {x: 0.000000038146972, y: -0.40700957, z: -0.0000012755075}
+      rotation: {x: 0.0000017169233, y: 0.00004189127, z: -7.19241e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightToeBase
+      parentName: thief_RightFoot
+      position: {x: -9.860772e-10, y: -0.06262317, z: 0.12954749}
+      rotation: {x: 0.000025417168, y: 4.939625e-16, z: -1.2555128e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Spine
+      parentName: thief_Hips
+      position: {x: -0, y: 0.07, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Spine1
+      parentName: thief_Spine
+      position: {x: -0, y: 0.12666664, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Spine2
+      parentName: thief_Spine1
+      position: {x: -0, y: 0.12666664, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftShoulder
+      parentName: thief_Spine2
+      position: {x: -0.07, y: 0.14255218, z: 0}
+      rotation: {x: 0, y: -0, z: -0.000006416546, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftArm
+      parentName: thief_LeftShoulder
+      position: {x: -0.10707251, y: -0.00000015336828, z: 0}
+      rotation: {x: 0.00000587118, y: -0.00001773982, z: -0.0000046401324, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftForeArm
+      parentName: thief_LeftArm
+      position: {x: -0.27305463, y: -0.00000588551, z: 0.000009659453}
+      rotation: {x: -0.00000581147, y: 0.000018869696, z: 0.000011260411, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHand
+      parentName: thief_LeftForeArm
+      position: {x: -0.26697144, y: 0.000000108785656, z: -0.0000005735744}
+      rotation: {x: 0, y: -0.00000091143113, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandThumb1
+      parentName: thief_LeftHand
+      position: {x: -0.04348765, y: -0.0079850545, z: 0.04282434}
+      rotation: {x: -0.07340254, y: 0.25673392, z: -0.06615202, w: 0.9614175}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandThumb2
+      parentName: thief_LeftHandThumb1
+      position: {x: -0.02512589, y: -0.005360859, z: 0.007074546}
+      rotation: {x: -0.00000031292439, y: 0.10705514, z: 0.08112343, w: 0.99093807}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandThumb3
+      parentName: thief_LeftHandThumb2
+      position: {x: -0.025431365, y: -0.000000020378533, z: 0.000000093795556}
+      rotation: {x: 0, y: 0, z: -0.0000025993363, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandThumb4
+      parentName: thief_LeftHandThumb3
+      position: {x: -0.02666748, y: -9.379164e-15, z: -0.00000008317415}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandIndex1
+      parentName: thief_LeftHand
+      position: {x: -0.08821978, y: 0.001997263, z: 0.03471669}
+      rotation: {x: -0.00000004199784, y: 0.017452406, z: 0.0000024060548, w: 0.9998477}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandIndex2
+      parentName: thief_LeftHandIndex1
+      position: {x: -0.042253204, y: 0.00000006802907, z: -0.0000026295909}
+      rotation: {x: 3.3995138e-18, y: 1.3877788e-17, z: -9.734738e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandIndex3
+      parentName: thief_LeftHandIndex2
+      position: {x: -0.026539395, y: -0.000000014017554, z: -0.0000016510916}
+      rotation: {x: -6.0371082e-18, y: -3.469447e-18, z: 1.7288027e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandIndex4
+      parentName: thief_LeftHandIndex3
+      position: {x: -0.019582199, y: -0.00000005034321, z: -0.0000012191304}
+      rotation: {x: -1.2680083e-18, y: 6.938894e-18, z: 3.6311032e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandMiddle1
+      parentName: thief_LeftHand
+      position: {x: -0.08809883, y: 0.0050088875, z: 0.013046842}
+      rotation: {x: 0, y: 0.000031095955, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandMiddle2
+      parentName: thief_LeftHandMiddle1
+      position: {x: -0.048632506, y: 0.000000019817161, z: 5.9236726e-12}
+      rotation: {x: 0, y: -3.8624702e-19, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandMiddle3
+      parentName: thief_LeftHandMiddle2
+      position: {x: -0.027652359, y: 0.000000011268003, z: -0.0000000021049107}
+      rotation: {x: 0, y: -8.131516e-20, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandMiddle4
+      parentName: thief_LeftHandMiddle3
+      position: {x: -0.020056304, y: 0.0000000081727025, z: -0.0000000103635225}
+      rotation: {x: 0, y: -1.2197274e-19, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandRing1
+      parentName: thief_LeftHand
+      position: {x: -0.088937595, y: 0.0037991684, z: -0.007931589}
+      rotation: {x: 0, y: 0.000031097657, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandRing2
+      parentName: thief_LeftHandRing1
+      position: {x: -0.04537758, y: 0.000000018490482, z: -0.0000028218283}
+      rotation: {x: 0, y: -5.963112e-19, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandRing3
+      parentName: thief_LeftHandRing2
+      position: {x: -0.023045272, y: 0.000000009390501, z: -0.0000014344337}
+      rotation: {x: 0, y: 1.8024861e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandRing4
+      parentName: thief_LeftHandRing3
+      position: {x: -0.019233475, y: 0.000000007837266, z: -0.0000012046332}
+      rotation: {x: 0, y: -3.1170812e-19, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandPinky1
+      parentName: thief_LeftHand
+      position: {x: -0.088822775, y: -0.0031303074, z: -0.024903564}
+      rotation: {x: 0, y: -0, z: -0.0000068623985, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandPinky2
+      parentName: thief_LeftHandPinky1
+      position: {x: -0.030440979, y: 0.00000005237153, z: -0.0000000013759981}
+      rotation: {x: 0, y: 0, z: 0.00000062712934, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandPinky3
+      parentName: thief_LeftHandPinky2
+      position: {x: -0.019745026, y: 0.0000000669904, z: -0.0000000014722702}
+      rotation: {x: 0, y: 0, z: 1.203295e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_LeftHandPinky4
+      parentName: thief_LeftHandPinky3
+      position: {x: -0.016666107, y: -0.0000002010442, z: 0.000000009409407}
+      rotation: {x: 0, y: 0, z: 3.9445477e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightShoulder
+      parentName: thief_Spine2
+      position: {x: 0.06999999, y: 0.14255218, z: 0}
+      rotation: {x: 0, y: 0, z: 0.000020231517, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightArm
+      parentName: thief_RightShoulder
+      position: {x: 0.10707275, y: -0.00000006002731, z: 0}
+      rotation: {x: 0.000005983186, y: 0.000017851495, z: -0.000009264248, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightForeArm
+      parentName: thief_RightArm
+      position: {x: 0.273056, y: -0.000006141886, z: 0.000009765294}
+      rotation: {x: -0.000005982836, y: -0.000018977233, z: -0.000011026867, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHand
+      parentName: thief_RightForeArm
+      position: {x: 0.2669699, y: 0.00000003182529, z: -0.00000056329543}
+      rotation: {x: 0, y: 0.0000009966209, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandThumb1
+      parentName: thief_RightHand
+      position: {x: 0.043483824, y: -0.007984919, z: 0.042828143}
+      rotation: {x: -0.0734112, y: -0.25673404, z: 0.06614731, w: 0.9614172}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandThumb2
+      parentName: thief_RightHandThumb1
+      position: {x: 0.025125276, y: -0.0053610196, z: 0.007076767}
+      rotation: {x: 0.0027482882, y: -0.0908912, z: -0.078609444, w: 0.99274963}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandThumb3
+      parentName: thief_RightHandThumb2
+      position: {x: 0.025415877, y: 0.000000038096, z: 0.00088820275}
+      rotation: {x: 0, y: 0, z: -0.0000018377616, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandThumb4
+      parentName: thief_RightHandThumb3
+      position: {x: 0.02665123, y: -0.00000002951622, z: 0.0009313753}
+      rotation: {x: 0, y: 0, z: 7.3774876e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandIndex1
+      parentName: thief_RightHand
+      position: {x: 0.088216715, y: 0.001997386, z: 0.03472444}
+      rotation: {x: 0.00006551519, y: 0.005355266, z: 0.003759003, w: 0.9999786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandIndex2
+      parentName: thief_RightHandIndex1
+      position: {x: 0.042253256, y: 0.000000005033917, z: 0.0000011492571}
+      rotation: {x: 0, y: 1.0408341e-17, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandIndex3
+      parentName: thief_RightHandIndex2
+      position: {x: 0.026539352, y: 0.000000003161813, z: 0.00000071880964}
+      rotation: {x: 0, y: -6.938894e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandIndex4
+      parentName: thief_RightHandIndex3
+      position: {x: 0.019582223, y: 0.000000002332963, z: 0.00000052951935}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandMiddle1
+      parentName: thief_RightHand
+      position: {x: 0.088097684, y: 0.005009013, z: 0.013054584}
+      rotation: {x: 0.00006551535, y: 0.005355263, z: 0.003759003, w: 0.9999786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandMiddle2
+      parentName: thief_RightHandMiddle1
+      position: {x: 0.048632488, y: 0.000000005793918, z: 0.0000013184892}
+      rotation: {x: 0, y: 3.469447e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandMiddle3
+      parentName: thief_RightHandMiddle2
+      position: {x: 0.027652394, y: 0.0000000032944172, z: 0.0000007498815}
+      rotation: {x: 0, y: -3.469447e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandMiddle4
+      parentName: thief_RightHandMiddle3
+      position: {x: 0.020056298, y: 0.0000000023894429, z: 0.00000054293014}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandRing1
+      parentName: thief_RightHand
+      position: {x: 0.08893829, y: 0.0037992964, z: -0.007923767}
+      rotation: {x: 0.00006551432, y: 0.0053554047, z: 0.0037589604, w: 0.9999786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandRing2
+      parentName: thief_RightHandRing1
+      position: {x: 0.045377634, y: 0.0000000054061453, z: 0.0000012323308}
+      rotation: {x: 0, y: 0.0000000018615104, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandRing3
+      parentName: thief_RightHandRing2
+      position: {x: 0.023045251, y: 0.0000000027455371, z: 0.0000006232741}
+      rotation: {x: 0, y: -3.469447e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandRing4
+      parentName: thief_RightHandRing3
+      position: {x: 0.0192335, y: 0.0000000022914173, z: 0.0000005231441}
+      rotation: {x: 0, y: -3.469447e-18, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandPinky1
+      parentName: thief_RightHand
+      position: {x: 0.088824905, y: -0.0031301773, z: -0.02489574}
+      rotation: {x: 0.00006559283, y: 0.005352233, z: 0.0037507273, w: 0.99997866}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandPinky2
+      parentName: thief_RightHandPinky1
+      position: {x: 0.03047798, y: -0.000000103087764, z: 0.0000008279144}
+      rotation: {x: 0.00000023308937, y: -6.6021767e-12, z: -0.00000667459, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandPinky3
+      parentName: thief_RightHandPinky2
+      position: {x: 0.019769028, y: 0.00000023413858, z: 0.00000053786846}
+      rotation: {x: -4.819088e-19, y: -3.469447e-18, z: 1.37998575e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_RightHandPinky4
+      parentName: thief_RightHandPinky3
+      position: {x: 0.016686404, y: -0.00000017892691, z: 0.00000045126498}
+      rotation: {x: 2.1324584e-18, y: -3.469447e-18, z: -6.1064306e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Neck
+      parentName: thief_Spine2
+      position: {x: -0, y: 0.12666656, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thief_Head
+      parentName: thief_Neck
+      position: {x: -0, y: 0.19999999, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thiefGeo
+      parentName: thief(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
