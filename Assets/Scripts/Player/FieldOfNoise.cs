@@ -9,6 +9,7 @@ using UnityEngine;
 public class FieldOfNoise : MonoBehaviour
 {
     [SerializeField] private Movement movement;
+    [SerializeField] private GameObject FONVisualization;
     [SerializeField] private float soundPropagationVelocity = 10.0f;
 
     [HideInInspector]
@@ -20,6 +21,7 @@ public class FieldOfNoise : MonoBehaviour
     public float runNoiseRadius;
 
     private SphereCollider _sphereCollider;
+    private bool _canShowFoN = false; // this should be read from PlayerPreferences when we will have a settings menu
 
     private void Awake()
     {
@@ -33,6 +35,17 @@ public class FieldOfNoise : MonoBehaviour
         if(_sphereCollider.radius >= currentRadius)
         {
             _sphereCollider.radius = currentRadius;
+        }
+
+        // FoN visualization
+        if (_canShowFoN)
+        {
+            FONVisualization.GetComponent<MeshRenderer>().enabled = true;
+            FONVisualization.transform.localScale = new Vector3(_sphereCollider.radius*2, FONVisualization.transform.localScale.y, _sphereCollider.radius*2);
+        }
+        else
+        {
+            FONVisualization.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
