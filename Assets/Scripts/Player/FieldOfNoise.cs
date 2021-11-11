@@ -9,6 +9,7 @@ using UnityEngine;
 public class FieldOfNoise : MonoBehaviour
 {
     [SerializeField] private Movement movement;
+    [SerializeField] private float soundPropagationVelocity = 10.0f;
 
     [HideInInspector]
     public float currentRadius;
@@ -28,7 +29,11 @@ public class FieldOfNoise : MonoBehaviour
     private void Update()
     {
         currentRadius = GetRadius();
-        _sphereCollider.radius = currentRadius;
+        _sphereCollider.radius = _sphereCollider.radius + soundPropagationVelocity * Time.deltaTime;
+        if(_sphereCollider.radius >= currentRadius)
+        {
+            _sphereCollider.radius = currentRadius;
+        }
     }
 
     private float GetRadius()
