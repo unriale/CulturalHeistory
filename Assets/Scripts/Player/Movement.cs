@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 6f;
     [SerializeField] private float runningSpeed = 13f;
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject thief; // Temporarily
+
     private CharacterController controller;
     private float minMagnitude = 0.01f;
     private float speed = 0;
@@ -22,6 +25,8 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        thief.transform.position = transform.position; // Temporarily
+        thief.transform.rotation = transform.rotation; // Temporarily
     }
 
     private void Move()
@@ -37,10 +42,9 @@ public class Movement : MonoBehaviour
     }
 
     private void StartMoving(float horizontalInput, float verticalInput)
-    {
+    { 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         controller.SimpleMove(movementDirection * speed);
-
         Vector3 normalizedMovementDirection = movementDirection.normalized;
         if (normalizedMovementDirection.magnitude > minMagnitude)
         {
@@ -50,12 +54,14 @@ public class Movement : MonoBehaviour
 
     private void ChangeStateToStay()
     {
+        animator.SetBool("walk", false);
         IsWalking = IsRunning = false;
         IsStaying = !IsWalking && !IsRunning;
     }
 
     private void ChangeStateToWalk()
     {
+        animator.SetBool("walk", true);
         speed = walkSpeed;
         IsWalking = true;
         IsStaying = IsRunning = false;
@@ -70,7 +76,8 @@ public class Movement : MonoBehaviour
 
     private bool Walking()
     {
-        return controller.velocity != Vector3.zero;
+        print(controller.velocity.y);
+        return (controller.velocity.x != 0 || controller.velocity.z != 0);
     }
 
     private bool Running()
