@@ -21,7 +21,7 @@ public class FieldOfNoise : MonoBehaviour
     public float runNoiseRadius;
 
     private SphereCollider _sphereCollider;
-    private bool _canShowFoN = false; // this should be read from PlayerPreferences when we will have a settings menu
+    private bool _canShowFoN = true; // this should be read from PlayerPreferences when we will have a settings menu
 
     private void Awake()
     {
