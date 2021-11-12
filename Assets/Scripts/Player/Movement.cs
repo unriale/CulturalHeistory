@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float runningSpeed = 13f;
     [SerializeField] Animator animator;
     [SerializeField] GameObject thief; // Temporarily
+    
 
     private CharacterController controller;
     private float minMagnitude = 0.01f;
@@ -48,7 +50,7 @@ public class Movement : MonoBehaviour
         Vector3 normalizedMovementDirection = movementDirection.normalized;
         if (normalizedMovementDirection.magnitude > minMagnitude)
         {
-            transform.forward = normalizedMovementDirection;
+            transform.forward = normalizedMovementDirection; //rotation
         }
     }
 
@@ -76,12 +78,11 @@ public class Movement : MonoBehaviour
 
     private bool Walking()
     {
-        print(controller.velocity.y);
-        return (controller.velocity.x != 0 || controller.velocity.z != 0);
+        return controller.velocity != Vector3.zero;
     }
 
     private bool Running()
     {
-        return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && controller.velocity != Vector3.zero;
+        return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
     }
 }

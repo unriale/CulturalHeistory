@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 13cd561daa2757c42bb47d8090aea78f
   - enabled: 1
-    path: Assets/Scenes/GuardsTesting.unity
+    path: Assets/Scenes/Central.unity
     guid: f47b08b78d9fc814da969d25b05a073f
+  - enabled: 1
+    path: Assets/Scenes/Down.unity
+    guid: 859225e52a4fed14fbb474fd0807989a
+  - enabled: 1
+    path: Assets/Scenes/Right.unity
+    guid: 271099ccb53382c4eb1b33296ef5d417
+  - enabled: 1
+    path: Assets/Scenes/Up.unity
+    guid: a0ac080efc257414bbb94c164e5d117d
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
