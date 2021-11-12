@@ -76,7 +76,7 @@ public class Movement : MonoBehaviour
 
     private bool Walking()
     {
-        print(controller.velocity.y);
+        //print(controller.velocity.y);
         return (controller.velocity.x != 0 || controller.velocity.z != 0);
     }
 
