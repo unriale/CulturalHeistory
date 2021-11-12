@@ -22,6 +22,7 @@ public class Guard : MonoBehaviour
     private bool _isAlerted = false;
     private bool _isAlertResetted = false;
     private bool _isAlertFilled = false;
+    private bool _isActing = false; // if gurd is doing an action ex. looking around or else
 
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
@@ -38,8 +39,8 @@ public class Guard : MonoBehaviour
         // States instantiation
         var randomGuarding = new RandomGuarding(this, _navMeshAgent, points);
         var thiefFound = new ThiefFound(this);
-        var increasingAlert = new IncreasingAlert(this,_navMeshAgent, progressBar);
-        var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.02f, progressBar); // TBD the amount of the decrease
+        var increasingAlert = new IncreasingAlertLevel1(this,_navMeshAgent, progressBar);
+        var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.04f, progressBar); // TBD the amount of the decrease
 
         // Transitions add (At) or any-transition
         At(randomGuarding, increasingAlert, IsGuardAlerted());
@@ -53,8 +54,8 @@ public class Guard : MonoBehaviour
 
         // Definition of condition functions for transitions
         Func<bool> IsGuardAlerted() => () => _isAlerted;
-        Func<bool> IsGuardNotAlerted() => () => _isAlerted == false;
-        Func<bool> ShouldGoBackToGuarding() => () => ShouldGuarding(); // if progressbar resetted go back to guarding
+        Func<bool> IsGuardNotAlerted() => () => _isAlerted == false && (!_isActing);
+        Func<bool> ShouldGoBackToGuarding() => () => ShouldGuarding() && (!_isActing); // if progressbar resetted go back to guarding
         
 
         // Set the initial state
@@ -69,8 +70,10 @@ public class Guard : MonoBehaviour
     void Update()
     {
         _stateMachine.Tick();
+        //Debug.Log(this.gameObject.name+" "+transform.right);
     }
 
+    #region Public region
     public void OnProgressBarReset()
     {
         _isAlertResetted = true;
@@ -91,12 +94,42 @@ public class Guard : MonoBehaviour
         exclamationMark.ResetExclamationMark();
     }
 
-    public void LookAtNoisePoint()
+    public void LookAtNoisePointOverTime()
     {
         Vector3 lookAtPos = noisePoint - this.transform.position;
         Quaternion newRot = Quaternion.LookRotation(lookAtPos, this.transform.up);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRot, Time.deltaTime * 8);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newRot, Time.deltaTime * 8); // over time
     }
+
+    public void LookAtNoisePointInstant()
+    {
+        Vector3 lookAtPos = noisePoint - this.transform.position;
+        Quaternion newRot = Quaternion.LookRotation(lookAtPos, this.transform.up);
+        this.transform.rotation = newRot; // instant
+    }
+
+    public void ActIncreaseLevel1() // Actions at alert increasing level 1
+    {
+        if (!_isActing)
+        {
+            _isActing = true;
+            StartCoroutine(LookAroundWithDelay(1.2f));
+        }
+    }
+    public void ActDecreaseLevel1() // Actions at alert decreasing level 1
+    {
+        if (!_isActing)
+        {
+            _isActing = true;
+            StartCoroutine(LookAroundWithDelayNoNoisePoint(1.2f));
+        }
+    }
+
+    public void ResetIsActing()
+    {
+        _isActing = false;
+    }
+    #endregion
 
     private bool ShouldGuarding()
     {
@@ -108,6 +141,99 @@ public class Guard : MonoBehaviour
         return false;
     }
 
+    #region Coroutine
+    private IEnumerator LookAroundWithDelay(float delay)
+    {
+        List<String> directions = new List<String>();
+        directions.Add("right");
+        directions.Add("left");
+        directions.Add("forward");
+        directions.Add("back");
+
+        // Shuffle
+        for (int i = 0; i < directions.Count; i++)
+        {
+            string temp = directions[i];
+            int randomIndex = UnityEngine.Random.Range(i, directions.Count);
+            directions[i] = directions[randomIndex];
+            directions[randomIndex] = temp;
+        }
+
+        // Look at noise point
+        this.LookAtNoisePointInstant();
+        yield return new WaitForSeconds(delay);
+
+        // Execute the first 3 directions in the list
+        for(int i=0; i<3; ++i)
+        {
+            Vector3 point = new Vector3();
+            if (directions[i].Equals("right"))
+            {
+                point = this.transform.right + this.transform.position;
+            }
+            else if (directions[i].Equals("left"))
+            {
+                point = this.transform.right * -1 + this.transform.position;
+            }
+            else if (directions[i].Equals("back"))
+            {
+                point = this.transform.forward * -1 + this.transform.position;
+            }
+            else
+            {
+                point = this.transform.forward + this.transform.position;
+            }
+            _navMeshAgent.SetDestination(point);
+            yield return new WaitForSeconds(delay);
+        }
+
+        _isActing = false;
+    }
+
+    private IEnumerator LookAroundWithDelayNoNoisePoint(float delay)
+    {
+        List<String> directions = new List<String>();
+        directions.Add("right");
+        directions.Add("left");
+        directions.Add("forward");
+        directions.Add("back");
+
+        // Shuffle
+        for (int i = 0; i < directions.Count; i++)
+        {
+            string temp = directions[i];
+            int randomIndex = UnityEngine.Random.Range(i, directions.Count);
+            directions[i] = directions[randomIndex];
+            directions[randomIndex] = temp;
+        }
+
+        // Execute the first 3 directions in the list
+        for (int i = 0; i < 3; ++i)
+        {
+            Vector3 point = new Vector3();
+            if (directions[i].Equals("right"))
+            {
+                point = this.transform.right + this.transform.position;
+            }
+            else if (directions[i].Equals("left"))
+            {
+                point = this.transform.right * -1 + this.transform.position;
+            }
+            else if (directions[i].Equals("back"))
+            {
+                point = this.transform.forward * -1 + this.transform.position;
+            }
+            else
+            {
+                point = this.transform.forward + this.transform.position;
+            }
+            _navMeshAgent.SetDestination(point);
+            yield return new WaitForSeconds(delay);
+        }
+
+        _isActing = false;
+    }
+    #endregion
 
     #region Collider's Trigger
     private void OnTriggerEnter(Collider other)

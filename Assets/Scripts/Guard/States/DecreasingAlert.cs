@@ -25,7 +25,8 @@ public class DecreasingAlert : IState
 
     public void OnEnter()
     {
-
+        // Reset Exclamation Mark, so that can be displayed again
+        _guard.RestExclamationMark();
     }
 
     public void OnExit()
@@ -35,8 +36,7 @@ public class DecreasingAlert : IState
 
     public void Tick()
     {
-        // Reset Exclamation Mark, so that can be displayed again
-        _guard.RestExclamationMark();
+        _guard.ActDecreaseLevel1();
 
         // Invoke UI
         _progressbar.DecreaseProgress(_decreaseAmount);

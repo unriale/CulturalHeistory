@@ -13,7 +13,7 @@ public class ThiefFound : IState
 
     public void OnEnter()
     {
-       
+        _guard.StopAllCoroutines();
     }
 
     public void OnExit()
