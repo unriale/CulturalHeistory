@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5965907762114108006}
   - component: {fileID: 5965907762114108028}
   - component: {fileID: 5965907762114108029}
-  - component: {fileID: 5965907762114108031}
+  - component: {fileID: 1379340717}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -251,7 +251,7 @@ MonoBehaviour:
   IsStaying: 0
   IsRunning: 0
   IsWalking: 0
---- !u!114 &5965907762114108031
+--- !u!114 &1379340717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,10 +260,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5965907762114108007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b58917c55991574399542dbf546938d, type: 3}
+  m_Script: {fileID: 11500000, guid: 33c48aa2d2148d941a56b29f6f62081b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 8308612827235056056, guid: 4da8ff470c8fe8b46ae1947fa624e9c7, type: 3}
+  aim: {fileID: 6824870360211658921, guid: 49f0a6a67493867469ca2e32d94ba927, type: 3}
+  layerForThrowing:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &5965907762672629072
 GameObject:
   m_ObjectHideFlags: 0
