@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Equals("Player"))
+        if (other.gameObject.name.Equals("Player") && FindObjectOfType<Fader>().HasFadedIn())
         {
             StartCoroutine(Transition());
         }
@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
         foreach (Door door in FindObjectsOfType<Door>())
         {
             if (door == this) continue;
-            if (door.destination == this.destination)
+            else if (door.destination == this.destination)
                 return door;
         }
         return null;

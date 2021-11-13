@@ -15,6 +15,11 @@ public class Fader : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    public bool HasFadedIn()
+    {
+        return canvasGroup.alpha == 0;
+    }
+
     /// 1s -> alpha 0 to 1, frame: deltaTime, num of frames = time/deltaTime, 1/0.1 = 10 frames
     /// 1 / (time/deltatime) = (deltatime / time) -> alpha val per frame 
     public IEnumerator FadeOut()
