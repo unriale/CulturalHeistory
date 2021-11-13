@@ -982,6 +982,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735476723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &743998561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6937026608768726493, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+  m_PrefabInstance: {fileID: 765302089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &765302089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -997,6 +1002,10 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 317495994}
+    - target: {fileID: 1377981845, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 743998561}
     - target: {fileID: 1377981845, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
       propertyPath: destination
       value: 1
@@ -1595,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
       propertyPath: m_Controller
@@ -1611,6 +1620,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
   m_PrefabInstance: {fileID: 1118651562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1147586986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6937026608768726493, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+  m_PrefabInstance: {fileID: 7463108264338536334}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1157975056 stripped
 Transform:
@@ -2661,6 +2675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61741a0842568c04892b2cf917ae740c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1713979020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6937026608768726493, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+  m_PrefabInstance: {fileID: 1773783206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1773783206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2676,6 +2695,10 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 317495994}
+    - target: {fileID: 1377981845, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1713979020}
     - target: {fileID: 1377981845, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
       propertyPath: destination
       value: 2
@@ -2832,7 +2855,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869967466}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3154,7 +3177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2146104534
 Transform:
   m_ObjectHideFlags: 0
@@ -3413,6 +3436,10 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 317495994}
+    - target: {fileID: 1377981845, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1147586986}
     - target: {fileID: 6937026608768726493, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2

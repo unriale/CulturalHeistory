@@ -8,6 +8,7 @@ public class Fader : MonoBehaviour
     [SerializeField] float fadeInTime;
 
     private CanvasGroup canvasGroup;
+    private Coroutine currentActiveFade;
 
     void Awake()
     {
@@ -18,7 +19,16 @@ public class Fader : MonoBehaviour
     /// 1 / (time/deltatime) = (deltatime / time) -> alpha val per frame 
     public IEnumerator FadeOut()
     {
-        print("In fade out");
+        if(currentActiveFade != null)
+        {
+            StopCoroutine(currentActiveFade);
+        }
+        currentActiveFade = StartCoroutine(FadeOutRoutine());
+        yield return currentActiveFade;
+    }
+
+    private IEnumerator FadeOutRoutine()
+    {
         while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime / fadeOutTime;
@@ -28,7 +38,16 @@ public class Fader : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
-        print("In fade in");
+        if (currentActiveFade != null)
+        {
+            StopCoroutine(currentActiveFade);
+        }
+        currentActiveFade = StartCoroutine(FadeInRoutine());
+        yield return currentActiveFade;
+    }
+
+    private IEnumerator FadeInRoutine()
+    {
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime / fadeInTime;

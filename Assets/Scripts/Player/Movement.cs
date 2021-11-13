@@ -56,14 +56,14 @@ public class Movement : MonoBehaviour
 
     private void ChangeStateToStay()
     {
-        animator.SetBool("walk", false);
+        //animator.SetBool("walk", false);
         IsWalking = IsRunning = false;
         IsStaying = !IsWalking && !IsRunning;
     }
 
     private void ChangeStateToWalk()
     {
-        animator.SetBool("walk", true);
+        //animator.SetBool("walk", true);
         speed = walkSpeed;
         IsWalking = true;
         IsStaying = IsRunning = false;
