@@ -10,7 +10,8 @@ public class GuardProgressBar : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image sliderImage;
 
-    private float _value;
+    public float Value;
+
     private bool _canIncrease = true;
     private bool _canDecrease = true;
 
@@ -20,8 +21,8 @@ public class GuardProgressBar : MonoBehaviour
     {
         backgroundImage.enabled = false;
         sliderImage.enabled = false;
-        _value = 0.0f;
-        sliderImage.fillAmount = _value;
+        Value = 0.0f;
+        sliderImage.fillAmount = Value;
     }
 
     void Update()
@@ -35,22 +36,22 @@ public class GuardProgressBar : MonoBehaviour
         {
             _canIncrease = false;
 
-            if (_value == 0.0f)
+            if (Value == 0.0f)
             {
                 backgroundImage.enabled = true;
                 sliderImage.enabled = true;
             }
 
-            _value = _value + amount / 10.0f;
+            Value = Value + amount / 10.0f;
 
-            sliderImage.fillAmount = _value;
+            sliderImage.fillAmount = Value;
 
-            if(_value >= 1.0f)
+            if(Value >= 1.0f)
             {
                 StopAllCoroutines();
 
                 _canIncrease = true;
-                _value = 1.0f;
+                Value = 1.0f;
                 sliderImage.fillAmount = 1.0f;
 
                 guard.OnProgressBarFilled(); // Call ProgressBar Filled
@@ -65,13 +66,13 @@ public class GuardProgressBar : MonoBehaviour
         if (_canDecrease)
         {
             _canDecrease = false;
-            if (_value <= 0.0001f)
+            if (Value <= 0.0001f)
             {
                 StopAllCoroutines();
 
                 backgroundImage.enabled = false;
                 sliderImage.enabled = false;
-                _value = 0.0f;
+                Value = 0.0f;
                 _canDecrease = true;
                 sliderImage.fillAmount = 0.0f;
 
@@ -79,9 +80,9 @@ public class GuardProgressBar : MonoBehaviour
                 return;
             }
 
-            _value = _value - amount / 10.0f;
+            Value = Value - amount / 10.0f;
 
-            sliderImage.fillAmount = _value;
+            sliderImage.fillAmount = Value;
 
             StartCoroutine(WaitForSmoothDecrease(_incDecDelay));
         }

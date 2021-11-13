@@ -39,14 +39,17 @@ public class Guard : MonoBehaviour
         // States instantiation
         var randomGuarding = new RandomGuarding(this, _navMeshAgent, points);
         var thiefFound = new ThiefFound(this);
-        var increasingAlert = new IncreasingAlertLevel1(this,_navMeshAgent, progressBar);
+        var increasingAlertLevel1 = new IncreasingAlertLevel1(this,_navMeshAgent, progressBar);
+        var increasingAlertLevel2 = new IncreasingAlertLevel2(this, _navMeshAgent, progressBar);
         var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.04f, progressBar); // TBD the amount of the decrease
 
         // Transitions add (At) or any-transition
-        At(randomGuarding, increasingAlert, IsGuardAlerted());
-        At(increasingAlert, decreasingAlert, IsGuardNotAlerted());
-        At(decreasingAlert, increasingAlert, IsGuardAlerted());
+        At(randomGuarding, increasingAlertLevel1, IsGuardAlerted());
+        At(increasingAlertLevel1, decreasingAlert, IsGuardNotAlerted());
+        At(decreasingAlert, increasingAlertLevel1, IsGuardAlerted());
         At(decreasingAlert, randomGuarding, ShouldGoBackToGuarding());
+        At(increasingAlertLevel1, increasingAlertLevel2, IsLevel2());
+        At(increasingAlertLevel2, decreasingAlert, IsGuardNotAlerted());
         _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer || _isAlertFilled));
 
         // Redefinition of StateMachine.AddTransition method (only for better code reading)
@@ -56,6 +59,7 @@ public class Guard : MonoBehaviour
         Func<bool> IsGuardAlerted() => () => _isAlerted;
         Func<bool> IsGuardNotAlerted() => () => _isAlerted == false && (!_isActing);
         Func<bool> ShouldGoBackToGuarding() => () => ShouldGuarding() && (!_isActing); // if progressbar resetted go back to guarding
+        Func<bool> IsLevel2() => () => progressBar.Value >= 0.6f && (_isAlerted);
         
 
         // Set the initial state
@@ -116,13 +120,19 @@ public class Guard : MonoBehaviour
             StartCoroutine(LookAroundWithDelay(1.2f));
         }
     }
-    public void ActDecreaseLevel1() // Actions at alert decreasing level 1
+    public void ActDecrease() // Actions at alert decreasing
     {
         if (!_isActing)
         {
             _isActing = true;
             StartCoroutine(LookAroundWithDelayNoNoisePoint(1.2f));
         }
+    }
+
+    public void ActIncreaseLevel2() // Actions at alert increasing level 2
+    {
+        // When I will be here, I will be already arrived to the noise point
+        ActIncreaseLevel1(); // I do the look around thing
     }
 
     public void ResetIsActing()

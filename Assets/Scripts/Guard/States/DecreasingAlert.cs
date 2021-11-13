@@ -36,7 +36,7 @@ public class DecreasingAlert : IState
 
     public void Tick()
     {
-        _guard.ActDecreaseLevel1();
+        _guard.ActDecrease();
 
         // Invoke UI
         _progressbar.DecreaseProgress(_decreaseAmount);
