@@ -1148,7 +1148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: 0.042942703, y: 13.755541, z: -9.468478}
+  m_LocalPosition: {x: 3.892943, y: 13.755541, z: -9.468478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176478569}
@@ -1652,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265133684}
   m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: 0.042942684, y: 16.119627, z: -8.399085}
+  m_LocalPosition: {x: 3.8929427, y: 16.119625, z: -8.399085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1583791360}
@@ -2516,6 +2516,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6937026608768726493, guid: 2820f011d27d4594eab98f67c7966d38, type: 3}
   m_PrefabInstance: {fileID: 1773783206}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1770691099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8831245874146720110, guid: bf3190427628d78448a24164db3bb928, type: 3}
+  m_PrefabInstance: {fileID: 5965907762540702221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1773783206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3005,6 +3010,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1379340717, guid: bf3190427628d78448a24164db3bb928, type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1770691099}
+    - target: {fileID: 1379340717, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: thief
       value: 
       objectReference: {fileID: 1627807234}
@@ -3026,7 +3035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalPosition.y

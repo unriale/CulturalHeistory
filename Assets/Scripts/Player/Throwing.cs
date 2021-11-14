@@ -4,16 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Movement))]
 public class Throwing : MonoBehaviour
 {
     [SerializeField] private GameObject aim;
     [SerializeField] private LayerMask layerForThrowing;
     [SerializeField] private float rotationSpeed = 3.5f;
+    [Tooltip("Reference to a hand which will throw a coin")] 
+    [SerializeField] Transform hand;
 
     private float time = 0;
     private bool isAiming = false;
+    private Movement mover;
 
     GameObject instantiatedAim = null;
+
+    private void Awake()
+    {
+        mover = GetComponent<Movement>();
+    }
 
     private void Update()
     {
@@ -27,8 +36,10 @@ public class Throwing : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            if(time >= 1f) 
+                FindObjectOfType<Coin>().ThrowFrom(hand.position, instantiatedAim.transform.position, this.transform);
             time = 0;
-            print("Not drawing");
+            mover.EnableMovement();
             isAiming = false;
             Destroy(instantiatedAim);
             instantiatedAim = null; 
@@ -55,8 +66,9 @@ public class Throwing : MonoBehaviour
 
     private void DrawAimInScene()
     {
+        // TODO: Play animation (arm is up, aiming)
         isAiming = true;
-        print("Drawing");
+        mover.DisableMovement();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, Mathf.Infinity, layerForThrowing))
