@@ -10,8 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float runningSpeed = 13f;
     [SerializeField] Animator animator;
     [SerializeField] GameObject thief; // Temporarily
-    
 
+    private bool _canMove = true;
     private CharacterController controller;
     private float minMagnitude = 0.01f;
     private float speed = 0;
@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-
     private void Update()
     {
         Move();
@@ -31,8 +30,12 @@ public class Movement : MonoBehaviour
         thief.transform.rotation = transform.rotation; // Temporarily
     }
 
+    public void EnableMovement() => _canMove = true;
+    public void DisableMovement() => _canMove = false;
+
     private void Move()
     {
+        if (!_canMove) return;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -43,6 +46,8 @@ public class Movement : MonoBehaviour
         StartMoving(horizontalInput, verticalInput);
     }
 
+
+
     private void StartMoving(float horizontalInput, float verticalInput)
     { 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
@@ -50,6 +55,12 @@ public class Movement : MonoBehaviour
         Vector3 normalizedMovementDirection = movementDirection.normalized;
         if (normalizedMovementDirection.magnitude > minMagnitude)
         {
+            //Quaternion currentRotation = transform.rotation;
+            //print("currentRotation = " + currentRotation.eulerAngles);
+            //Quaternion wantedRotation = Quaternion.Euler(0, Vector3.Angle(transform.forward, normalizedMovementDirection), 0);
+            //Quaternion wantedRotation = Quaternion.Euler(0, 0, 0);
+            //print("wantedRotation = " + wantedRotation.eulerAngles);
+            //transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 3);
             transform.forward = normalizedMovementDirection; //rotation
         }
     }
