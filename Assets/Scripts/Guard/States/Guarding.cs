@@ -22,6 +22,7 @@ public class Guarding : IState
     public void OnEnter()
     {
         _navMeshAgent.enabled = true;
+        _navMeshAgent.isStopped = false;
         _navMeshAgent.SetDestination(_navPoints[indexPoint].position);
     }
 

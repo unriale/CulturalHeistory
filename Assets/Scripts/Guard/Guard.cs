@@ -11,6 +11,7 @@ public class Guard : MonoBehaviour
     [SerializeField] private ExclamationMark exclamationMark;
 
     [Header("Nav Settings")]
+    [SerializeField] private bool isFollowingRandomPath;
     [SerializeField] private Transform[] points;
 
     private StateMachine _stateMachine;
@@ -37,17 +38,25 @@ public class Guard : MonoBehaviour
         _stateMachine = new StateMachine();
 
         // States instantiation
-        var randomGuarding = new RandomGuarding(this, _navMeshAgent, points);
+        IState guarding;
+        if (isFollowingRandomPath)
+        {
+            guarding = new RandomGuarding(this, _navMeshAgent, points);
+        }
+        else
+        {
+            guarding = new Guarding(this, _navMeshAgent, points);
+        }
         var thiefFound = new ThiefFound(this);
         var increasingAlertLevel1 = new IncreasingAlertLevel1(this,_navMeshAgent, progressBar);
         var increasingAlertLevel2 = new IncreasingAlertLevel2(this, _navMeshAgent, progressBar);
         var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.04f, progressBar); // TBD the amount of the decrease
 
         // Transitions add (At) or any-transition
-        At(randomGuarding, increasingAlertLevel1, IsGuardAlerted());
+        At(guarding, increasingAlertLevel1, IsGuardAlerted());
         At(increasingAlertLevel1, decreasingAlert, IsGuardNotAlerted());
         At(decreasingAlert, increasingAlertLevel1, IsGuardAlerted());
-        At(decreasingAlert, randomGuarding, ShouldGoBackToGuarding());
+        At(decreasingAlert, guarding, ShouldGoBackToGuarding());
         At(increasingAlertLevel1, increasingAlertLevel2, IsLevel2());
         At(increasingAlertLevel2, decreasingAlert, IsGuardNotAlerted());
         _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer || _isAlertFilled));
@@ -63,7 +72,7 @@ public class Guard : MonoBehaviour
         
 
         // Set the initial state
-        _stateMachine.SetState(randomGuarding);
+        _stateMachine.SetState(guarding);
     }
 
     void Start()
