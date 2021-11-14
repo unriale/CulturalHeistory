@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770269926215312800
 Transform:
   m_ObjectHideFlags: 0
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewRadius: 4.12
   ViewAngle: 70
+  spotLight: {fileID: 2099962591951001048}
   MeshResolution: 1
   ViewMeshFilter: {fileID: 770269926641241775}
   targetMask:
@@ -540,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770269926641241773
 Transform:
   m_ObjectHideFlags: 0

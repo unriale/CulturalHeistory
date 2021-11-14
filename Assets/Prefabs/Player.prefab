@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   runningSpeed: 7
+  rotationSpeed: 3
   animator: {fileID: 261697141629915958}
   thief: {fileID: 6776299310034949110}
   IsStaying: 0
