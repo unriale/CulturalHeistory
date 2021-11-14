@@ -8,8 +8,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 6f;
     [SerializeField] private float runningSpeed = 13f;
+    [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject thief; // Temporarily
+    [SerializeField] GameObject thief;
 
     private bool _canMove = true;
     private CharacterController controller;
@@ -26,8 +27,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
-        thief.transform.position = transform.position; // Temporarily
-        thief.transform.rotation = transform.rotation; // Temporarily
+        thief.transform.rotation = transform.rotation;
     }
 
     public void EnableMovement() => _canMove = true;
@@ -56,10 +56,8 @@ public class Movement : MonoBehaviour
         if (normalizedMovementDirection.magnitude > minMagnitude)
         {
             Quaternion currentRotation = transform.rotation;
-            //print("Angle: " + Vector3.Angle(Vector3.forward, normalizedMovementDirection));
             Quaternion wantedRotation = Quaternion.Euler(0, Vector3.SignedAngle(Vector3.forward, normalizedMovementDirection, Vector3.up), 0);
-            transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 3);
-            //transform.forward = normalizedMovementDirection; //rotation
+            transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
