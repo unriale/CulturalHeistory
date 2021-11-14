@@ -244,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5478eab28d0de694b98789944bc91d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runningSpeed: 7
-  rotationSpeed: 3
+  walkSpeed: 2
+  runningSpeed: 6
+  rotationSpeed: 2
   animator: {fileID: 261697141629915958}
   thief: {fileID: 6776299310034949110}
   IsStaying: 0
