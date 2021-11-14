@@ -27,7 +27,14 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        UpdatePosition();
+    }
+
+    void UpdatePosition()
+    {
         thief.transform.rotation = transform.rotation;
+        Vector3 newPos = new Vector3(transform.position.x, thief.transform.position.y, transform.position.z);
+        thief.transform.position = newPos;
     }
 
     public void EnableMovement() => _canMove = true;

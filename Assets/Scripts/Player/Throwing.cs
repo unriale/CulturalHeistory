@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Throwing : MonoBehaviour
 {
-    [SerializeField] GameObject aim;
-    [SerializeField] LayerMask layerForThrowing;
+    [SerializeField] private GameObject aim;
+    [SerializeField] private LayerMask layerForThrowing;
+    [SerializeField] private float rotationSpeed = 3.5f;
 
     private float time = 0;
     private bool isAiming = false;
@@ -44,7 +45,10 @@ public class Throwing : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerForThrowing))
             {
                 instantiatedAim.transform.position = new Vector3(hit.point.x, hit.point.y + 0.05f, hit.point.z);
-                transform.LookAt(instantiatedAim.transform.position);
+                Vector3 initialVector = instantiatedAim.transform.position - transform.position;
+                Vector3 rotated = Quaternion.AngleAxis(-90, Vector3.up) * initialVector;
+                Quaternion toRotation = Quaternion.LookRotation(rotated + transform.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
         }
     }
