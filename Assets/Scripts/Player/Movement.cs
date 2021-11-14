@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour
         {
             Quaternion currentRotation = transform.rotation;
             print("Angle: " + Vector3.Angle(Vector3.forward, normalizedMovementDirection));
-            Quaternion wantedRotation = Quaternion.Euler(0, Vector3.Angle(Vector3.forward, normalizedMovementDirection), 0);
+            Quaternion wantedRotation = Quaternion.Euler(0, Vector3.SignedAngle(Vector3.forward, normalizedMovementDirection, Vector3.up), 0);
             transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 3);
             //transform.forward = normalizedMovementDirection; //rotation
         }
