@@ -55,13 +55,11 @@ public class Movement : MonoBehaviour
         Vector3 normalizedMovementDirection = movementDirection.normalized;
         if (normalizedMovementDirection.magnitude > minMagnitude)
         {
-            //Quaternion currentRotation = transform.rotation;
-            //print("currentRotation = " + currentRotation.eulerAngles);
-            //Quaternion wantedRotation = Quaternion.Euler(0, Vector3.Angle(transform.forward, normalizedMovementDirection), 0);
-            //Quaternion wantedRotation = Quaternion.Euler(0, 0, 0);
-            //print("wantedRotation = " + wantedRotation.eulerAngles);
-            //transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 3);
-            transform.forward = normalizedMovementDirection; //rotation
+            Quaternion currentRotation = transform.rotation;
+            print("Angle: " + Vector3.Angle(Vector3.forward, normalizedMovementDirection));
+            Quaternion wantedRotation = Quaternion.Euler(0, Vector3.Angle(Vector3.forward, normalizedMovementDirection), 0);
+            transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 3);
+            //transform.forward = normalizedMovementDirection; //rotation
         }
     }
 

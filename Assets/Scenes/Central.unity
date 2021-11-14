@@ -2916,11 +2916,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5965907761837448917, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5965907761837448920, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108000, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_Enabled
