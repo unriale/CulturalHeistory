@@ -30,7 +30,7 @@ public class Pickup : MonoBehaviour
     {
         if (PlayerIsFarAway()) return;
         if (Input.GetKeyDown(KeyCode.E))
-            if (!isPickedUp) PickUpItem();
+            if (!isPickedUp) StartCoroutine(PickUpItem());
     }
 
     private bool PlayerIsFarAway()
@@ -38,14 +38,17 @@ public class Pickup : MonoBehaviour
         return Vector3.Distance(gameObject.transform.position, player.transform.position) > PickupRadius;
     }
 
-    private void PickUpItem()
+    IEnumerator PickUpItem()
     {
         print("Picking up animation");
         isPickedUp = true;
         if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++;
+        player.GetComponent<Movement>().DisableMovement();
         slot.UpdateAmount(GetAmountLeft(), destroyDelay);
+        yield return new WaitForSeconds(destroyDelay);
+        player.GetComponent<Movement>().EnableMovement();
         // TODO: VFX + SFX
-        Destroy(gameObject, destroyDelay);
+        Destroy(gameObject);
     }
 
     private int GetAmountLeft()
