@@ -8,14 +8,18 @@ public class Guarding : IState
     private readonly Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private Transform[] _navPoints;
+    private GuardProgressBar _progressBar;
+    private float _decreaseAmount;
 
     private int indexPoint; // index for the circular choice of nav points (ex: 0 -> 1 -> 2 -> 0 ...)
 
-    public Guarding(Guard guard, NavMeshAgent navMeshAgent, Transform[] navPoints)
+    public Guarding(Guard guard, NavMeshAgent navMeshAgent, Transform[] navPoints, GuardProgressBar prog, float decreaseAmount)
     {
         _guard = guard;
         _navMeshAgent = navMeshAgent;
         _navPoints = navPoints;
+        _progressBar = prog;
+        _decreaseAmount = decreaseAmount;
         indexPoint = 0;
     }
 
@@ -24,6 +28,9 @@ public class Guarding : IState
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
         _navMeshAgent.SetDestination(_navPoints[indexPoint].position);
+
+        // Reset Exclamation Mark, so that can be displayed again
+        _guard.RestExclamationMark();
     }
 
     public void OnExit()
@@ -34,6 +41,9 @@ public class Guarding : IState
 
     public void Tick()
     {
+        // Decrease progress when guarding
+        _progressBar.DecreaseProgress(_decreaseAmount);
+
         float dist = _navMeshAgent.remainingDistance;
         if(dist != Mathf.Infinity && _navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete && dist == 0)
         {

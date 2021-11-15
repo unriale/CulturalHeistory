@@ -25,6 +25,11 @@ public class Guard : MonoBehaviour
     private bool _isAlertFilled = false;
     private bool _isActing = false; // if gurd is doing an action ex. looking around or else
 
+    // Other Attributes
+    private const float TIME_TIMER = 2.0f;
+    private float _alertTimer = TIME_TIMER;
+    private int _random = 0;
+
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
     [HideInInspector]
@@ -41,24 +46,22 @@ public class Guard : MonoBehaviour
         IState guarding;
         if (isFollowingRandomPath)
         {
+            // TODO: I still have to refactor this
             guarding = new RandomGuarding(this, _navMeshAgent, points);
         }
         else
         {
-            guarding = new Guarding(this, _navMeshAgent, points);
+            guarding = new Guarding(this, _navMeshAgent, points, progressBar, 0.04f);
         }
-        var thiefFound = new ThiefFound(this);
-        var increasingAlertLevel1 = new IncreasingAlertLevel1(this,_navMeshAgent, progressBar);
-        var increasingAlertLevel2 = new IncreasingAlertLevel2(this, _navMeshAgent, progressBar);
-        var decreasingAlert = new DecreasingAlert(this, _navMeshAgent, 0.04f, progressBar); // TBD the amount of the decrease
+        var thiefFound = new ThiefFound(this, _navMeshAgent);
+        var lookingAround = new LookingAround(this, _navMeshAgent, progressBar);
+        var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar);
 
-        // Transitions add (At) or any-transition
-        At(guarding, increasingAlertLevel1, IsGuardAlerted());
-        At(increasingAlertLevel1, decreasingAlert, IsGuardNotAlerted());
-        At(decreasingAlert, increasingAlertLevel1, IsGuardAlerted());
-        At(decreasingAlert, guarding, ShouldGoBackToGuarding());
-        At(increasingAlertLevel1, increasingAlertLevel2, IsLevel2());
-        At(increasingAlertLevel2, decreasingAlert, IsGuardNotAlerted());
+        At(guarding, followingNoise, IsGuardAlerted());
+        At(followingNoise, guarding, IsNotInAction());
+       // At(guarding, followingNoise, IsFollowingNoise());
+       // At(followingNoise, guarding, IsNotInAction());
+
         _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer || _isAlertFilled));
 
         // Redefinition of StateMachine.AddTransition method (only for better code reading)
@@ -66,10 +69,9 @@ public class Guard : MonoBehaviour
 
         // Definition of condition functions for transitions
         Func<bool> IsGuardAlerted() => () => _isAlerted;
-        Func<bool> IsGuardNotAlerted() => () => _isAlerted == false && (!_isActing);
-        Func<bool> ShouldGoBackToGuarding() => () => ShouldGuarding() && (!_isActing); // if progressbar resetted go back to guarding
-        Func<bool> IsLevel2() => () => progressBar.Value >= 0.6f && (_isAlerted);
-        
+        Func<bool> IsGuardNotAlerted() => () => _isAlerted == false;
+        Func<bool> IsInAction() => () => _isActing;
+        Func<bool> IsNotInAction() => () => !_isActing;
 
         // Set the initial state
         _stateMachine.SetState(guarding);
@@ -83,7 +85,6 @@ public class Guard : MonoBehaviour
     void Update()
     {
         _stateMachine.Tick();
-        //Debug.Log(this.gameObject.name+" "+transform.right);
     }
 
     #region Public region
@@ -121,44 +122,29 @@ public class Guard : MonoBehaviour
         this.transform.rotation = newRot; // instant
     }
 
-    public void ActIncreaseLevel1() // Actions at alert increasing level 1
+    public void ActLookingAround(float delay) // Action looking around
     {
         if (!_isActing)
         {
             _isActing = true;
-            StartCoroutine(LookAroundWithDelay(1.2f));
+            StartCoroutine(LookAroundWithDelay(delay));
         }
-    }
-    public void ActDecrease() // Actions at alert decreasing
-    {
-        if (!_isActing)
-        {
-            _isActing = true;
-            StartCoroutine(LookAroundWithDelayNoNoisePoint(1.2f));
-        }
-    }
-
-    public void ActIncreaseLevel2() // Actions at alert increasing level 2
-    {
-        // When I will be here, I will be already arrived to the noise point
-        ActIncreaseLevel1(); // I do the look around thing
     }
 
     public void ResetIsActing()
     {
         _isActing = false;
     }
-    #endregion
 
-    private bool ShouldGuarding()
+    public void SetIsActing()
     {
-        if (_isAlertResetted)
-        {
-            _isAlertResetted = false;
-            return true;
-        }
-        return false;
+        _isActing = true;
     }
+    public bool GetIsActing()
+    {
+        return _isActing;
+    }
+    #endregion
 
     #region Coroutine
     private IEnumerator LookAroundWithDelay(float delay)
@@ -209,49 +195,6 @@ public class Guard : MonoBehaviour
         _isActing = false;
     }
 
-    private IEnumerator LookAroundWithDelayNoNoisePoint(float delay)
-    {
-        List<String> directions = new List<String>();
-        directions.Add("right");
-        directions.Add("left");
-        directions.Add("forward");
-        directions.Add("back");
-
-        // Shuffle
-        for (int i = 0; i < directions.Count; i++)
-        {
-            string temp = directions[i];
-            int randomIndex = UnityEngine.Random.Range(i, directions.Count);
-            directions[i] = directions[randomIndex];
-            directions[randomIndex] = temp;
-        }
-
-        // Execute the first 3 directions in the list
-        for (int i = 0; i < 3; ++i)
-        {
-            Vector3 point = new Vector3();
-            if (directions[i].Equals("right"))
-            {
-                point = this.transform.right + this.transform.position;
-            }
-            else if (directions[i].Equals("left"))
-            {
-                point = this.transform.right * -1 + this.transform.position;
-            }
-            else if (directions[i].Equals("back"))
-            {
-                point = this.transform.forward * -1 + this.transform.position;
-            }
-            else
-            {
-                point = this.transform.forward + this.transform.position;
-            }
-            _navMeshAgent.SetDestination(point);
-            yield return new WaitForSeconds(delay);
-        }
-
-        _isActing = false;
-    }
     #endregion
 
     #region Collider's Trigger
@@ -264,6 +207,7 @@ public class Guard : MonoBehaviour
         if (other.gameObject.tag.Equals("FoN"))
         {
             _isAlerted = true;
+            _alertTimer = TIME_TIMER; // Set Timer
             noisePoint = other.gameObject.transform.position;
         }
     }
@@ -275,6 +219,15 @@ public class Guard : MonoBehaviour
             FieldOfNoise fon = other.gameObject.GetComponent<FieldOfNoise>();
             float radius = fon.currentRadius;
             NoiseValue = radius / (10 * Vector3.Distance(other.gameObject.transform.position, transform.position));
+
+            // Decrease Timer
+            _alertTimer -= Time.deltaTime;
+            // Check if timer is expired
+            if(_alertTimer <= 0.0f)
+            {
+                // Game Over
+                progressBar.Value = 1;
+            }
         }
     }
 

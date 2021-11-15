@@ -97,6 +97,6 @@ public class Movement : MonoBehaviour
 
     private bool Running()
     {
-        return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && controller.velocity != Vector3.zero;
     }
 }
