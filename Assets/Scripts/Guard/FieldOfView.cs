@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    private Mesh _viewMesh;
-
     [Header("FOW Settings")]
     public float ViewRadius;
     [Range(0,360)]
     public float ViewAngle;
+
+    [SerializeField] private Light spotLight;
     
     public float MeshResolution; // raycast per degree
     public MeshFilter ViewMeshFilter;
@@ -23,6 +23,8 @@ public class FieldOfView : MonoBehaviour
     [HideInInspector]
     public Vector3 PlayerPosition;
 
+    private Mesh _viewMesh;
+
     private void Awake()
     {
         PlayerInRange = false;
@@ -31,6 +33,11 @@ public class FieldOfView : MonoBehaviour
         _viewMesh = new Mesh();
         _viewMesh.name = "View Mesh";
         ViewMeshFilter.mesh = _viewMesh;
+
+        // Light settings
+        spotLight.range = ViewRadius;
+        spotLight.spotAngle = ViewAngle;
+        spotLight.intensity = ViewRadius * 2.0f + 5.0f;
     }
 
     private void Start()
