@@ -24,6 +24,7 @@ public class Guard : MonoBehaviour
     private bool _isAlertResetted = false;
     private bool _isAlertFilled = false;
     private bool _isActing = false; // if gurd is doing an action ex. looking around or else
+    private bool _isAlertedByCoin = false;
 
     // Other Attributes
     private const float TIME_TIMER = 2.0f;
@@ -34,6 +35,8 @@ public class Guard : MonoBehaviour
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
     [HideInInspector]
     public Vector3 noisePoint; // noise point
+    [HideInInspector]
+    public Vector3 coinPoint; // coin point
 
     private void Awake()
     {
@@ -55,13 +58,17 @@ public class Guard : MonoBehaviour
         var thiefFound = new ThiefFound(this, _navMeshAgent);
         var lookingAround = new LookingAround(this, _navMeshAgent, progressBar);
         var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar);
+        var distraction = new Distraction(this, _navMeshAgent, progressBar); 
 
+        // Transitions and Any-Transitions
         At(guarding, lookingAround, ShouldLookAround());
         At(lookingAround, guarding, IsNotInAction());
         At(guarding, followingNoise, ShouldFollowNoise());
         At(followingNoise, guarding, IsNotInAction());
-
+        At(distraction, guarding, IsNotInAction());
+        
         _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer || _isAlertFilled));
+        _stateMachine.AddAnyTransition(distraction, () => (_isAlertedByCoin));
 
         // Redefinition of StateMachine.AddTransition method (only for better code reading)
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
@@ -214,6 +221,12 @@ public class Guard : MonoBehaviour
             _alertTimer = TIME_TIMER; // Set Timer
             noisePoint = other.gameObject.transform.position;
         }
+        if (other.gameObject.tag.Equals("Coin"))
+        {
+            _isAlertedByCoin = true;
+            coinPoint = other.gameObject.transform.position;
+            //Debug.Log("[Guard OnTriggerEnter] Alerted by a coin");
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -237,11 +250,15 @@ public class Guard : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name.Equals("FoN"))
+        if (other.gameObject.tag.Equals("FoN"))
         {
             _isAlerted = false;
         }
-
+        if (other.gameObject.tag.Equals("Coin"))
+        {
+            _isAlertedByCoin = false;
+            //Debug.Log("[Guard OnTriggerExit] Collision trigger coin exited");
+        }
     }
     #endregion
 

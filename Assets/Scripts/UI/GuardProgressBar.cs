@@ -30,6 +30,21 @@ public class GuardProgressBar : MonoBehaviour
 
     }
 
+    public void SetPorgressBarValue(float amount)
+    {
+        if(amount >= 1.0f)
+        {
+            Value = 1.0f;
+            sliderImage.fillAmount = 1.0f;
+            guard.OnProgressBarFilled();
+        }
+        else
+        {
+            Value = amount;
+            sliderImage.fillAmount = amount;
+        }
+    }
+
     public void IncreaseProgress(float amount)
     {
         if (_canIncrease)

@@ -300,7 +300,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   rotationSpeed: 3.5
-  hand: {fileID: 7032991438803773219}
+  hand: {fileID: 8831245874146720110}
 --- !u!1 &5965907762672629072
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,10 +558,5 @@ Transform:
 --- !u!95 &261697141629915958 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
-  m_PrefabInstance: {fileID: 5965907761489686183}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7032991438803773219 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3697769701046585732, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
   m_PrefabInstance: {fileID: 5965907761489686183}
   m_PrefabAsset: {fileID: 0}
