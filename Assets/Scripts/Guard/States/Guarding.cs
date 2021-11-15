@@ -25,6 +25,11 @@ public class Guarding : IState
 
     public void OnEnter()
     {
+        // Set random value so that can guard knows if the next state will be "FollowingNoise" 
+        // or "LookingAround"
+        int rand = Random.Range(0, 2);
+        _guard.SetRandomValue(rand);
+
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
         _navMeshAgent.SetDestination(_navPoints[indexPoint].position);

@@ -28,7 +28,7 @@ public class Guard : MonoBehaviour
     // Other Attributes
     private const float TIME_TIMER = 2.0f;
     private float _alertTimer = TIME_TIMER;
-    private int _random = 0;
+    private int _random = 0; // choose if the guard has to look around or follow the noise
 
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
@@ -46,8 +46,7 @@ public class Guard : MonoBehaviour
         IState guarding;
         if (isFollowingRandomPath)
         {
-            // TODO: I still have to refactor this
-            guarding = new RandomGuarding(this, _navMeshAgent, points);
+            guarding = new RandomGuarding(this, _navMeshAgent, points, progressBar, 0.04f);
         }
         else
         {
@@ -57,10 +56,10 @@ public class Guard : MonoBehaviour
         var lookingAround = new LookingAround(this, _navMeshAgent, progressBar);
         var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar);
 
-        At(guarding, followingNoise, IsGuardAlerted());
+        At(guarding, lookingAround, ShouldLookAround());
+        At(lookingAround, guarding, IsNotInAction());
+        At(guarding, followingNoise, ShouldFollowNoise());
         At(followingNoise, guarding, IsNotInAction());
-       // At(guarding, followingNoise, IsFollowingNoise());
-       // At(followingNoise, guarding, IsNotInAction());
 
         _stateMachine.AddAnyTransition(thiefFound, () => (_fow.PlayerInRange || _isCollidedWithPlayer || _isAlertFilled));
 
@@ -68,10 +67,9 @@ public class Guard : MonoBehaviour
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
         // Definition of condition functions for transitions
-        Func<bool> IsGuardAlerted() => () => _isAlerted;
-        Func<bool> IsGuardNotAlerted() => () => _isAlerted == false;
-        Func<bool> IsInAction() => () => _isActing;
         Func<bool> IsNotInAction() => () => !_isActing;
+        Func<bool> ShouldLookAround() => () => (_isAlerted && _random == 0);
+        Func<bool> ShouldFollowNoise() => () => (_isAlerted && _random == 1);
 
         // Set the initial state
         _stateMachine.SetState(guarding);
@@ -85,6 +83,7 @@ public class Guard : MonoBehaviour
     void Update()
     {
         _stateMachine.Tick();
+
     }
 
     #region Public region
@@ -144,6 +143,11 @@ public class Guard : MonoBehaviour
     {
         return _isActing;
     }
+    public void SetRandomValue(int rand)
+    {
+        _random = rand;
+    }
+
     #endregion
 
     #region Coroutine

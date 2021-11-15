@@ -19,7 +19,6 @@ public class ThiefFound : IState
         _guard.StopAllCoroutines();
 
         // For now, adjust based on the gameover action
-        _navMeshAgent.isStopped = true;
         _navMeshAgent.enabled = false;
     }
 
