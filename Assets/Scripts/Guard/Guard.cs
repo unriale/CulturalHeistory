@@ -30,6 +30,7 @@ public class Guard : MonoBehaviour
     private const float TIME_TIMER = 2.0f;
     private float _alertTimer = TIME_TIMER;
     private int _random = 0; // choose if the guard has to look around or follow the noise
+    private float _refreshTimeStuckCheck = 3.0f;
 
     [HideInInspector]
     public float NoiseValue = 0.0f; // noise value from the player (amount to add to the progressbar)
@@ -41,6 +42,11 @@ public class Guard : MonoBehaviour
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // Randomize the collision avoidance priority
+        int collsionPrio = UnityEngine.Random.Range(0, 51);
+        _navMeshAgent.avoidancePriority = collsionPrio;
+
         _fow = GetComponent<FieldOfView>();
 
         _stateMachine = new StateMachine();
@@ -84,13 +90,12 @@ public class Guard : MonoBehaviour
 
     void Start()
     {
-       
+        StartCoroutine(CheckNavMeshStuck(_refreshTimeStuckCheck));
     }
 
     void Update()
     {
         _stateMachine.Tick();
-
     }
 
     private void OnEnable()
@@ -224,6 +229,29 @@ public class Guard : MonoBehaviour
         _isActing = false;
     }
 
+    private IEnumerator CheckNavMeshStuck(float refreshTime)
+    {
+        Vector3 lastPosition = this.transform.position;
+        while (true)
+        {
+            lastPosition = this.transform.position;
+            yield return new WaitForSeconds(refreshTime);
+            Debug.Log("Remaining distance by "+this.gameObject.name + ": " + _navMeshAgent.remainingDistance);
+            if (_navMeshAgent.hasPath && _navMeshAgent.remainingDistance > 0.0f)
+            {
+                Debug.Log("I'm in the if");
+                Vector3 currentPosition = this.transform.position;
+                Debug.Log(this.gameObject.name+": "+Vector3.Distance(currentPosition, lastPosition).ToString());
+                if (Vector3.Distance(currentPosition, lastPosition) < 1.0f)
+                {
+                    Debug.Log("[Guard CheckNavMeshStuck]: Agent Stuck - Changing avoidance priority");
+                    int randPrio = UnityEngine.Random.Range(0, 51);
+                    _navMeshAgent.avoidancePriority = randPrio;
+                }
+            }
+        }
+    }
+
     #endregion
 
     #region Collider's Trigger
@@ -277,5 +305,5 @@ public class Guard : MonoBehaviour
         }
     }
     #endregion
-   
+
 }

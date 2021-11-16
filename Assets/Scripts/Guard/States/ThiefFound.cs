@@ -56,11 +56,9 @@ public class ThiefFound : IState
         if (_hadPath)
         {
             float dist = _navMeshAgent.remainingDistance;
-            Debug.Log(dist);
             if (dist != Mathf.Infinity && dist <= 1.6f && !_enterOnce)
             {
                 _enterOnce = true;
-                Debug.Log("IN");
                 // Arrived
                 _navMeshAgent.isStopped = true; // Stop in front of the player
             }

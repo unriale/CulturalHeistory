@@ -29,7 +29,8 @@ public class Distraction : IState
         _guard.ShowExclamationMark();
 
         // Interupt any other acting from the other states
-        _guard.StopAllCoroutines();
+        //_guard.StopAllCoroutines();
+        _guard.StopCoroutine("LookAroundWithDelay");
 
         _navMeshAgent.SetDestination(_guard.coinPoint);
         _guard.SetIsActing();

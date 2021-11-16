@@ -499,6 +499,7 @@ MonoBehaviour:
   - {fileID: 0}
   NoiseValue: 0
   noisePoint: {x: 0, y: 0, z: 0}
+  coinPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &770269926467441522
 MonoBehaviour:
   m_ObjectHideFlags: 0

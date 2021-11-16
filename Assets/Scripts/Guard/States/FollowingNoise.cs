@@ -28,7 +28,8 @@ public class FollowingNoise : IState
         _guard.ShowExclamationMark();
 
         // Interupt any other acting from the other states
-        _guard.StopAllCoroutines();
+        //_guard.StopAllCoroutines();
+        _guard.StopCoroutine("LookAroundWithDelay");
 
         _navMeshAgent.SetDestination(_guard.noisePoint);
         _guard.SetIsActing();
