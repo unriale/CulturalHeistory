@@ -9,4 +9,20 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    private void OnEnable()
+    {
+        ThiefFound.GameOver += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        ThiefFound.GameOver -= OnGameOver;
+    }
+
+    private void OnGameOver()
+    {
+        // Do your stuff when the game is over
+        // ...
+    }
 }

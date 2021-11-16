@@ -55,7 +55,7 @@ public class Guard : MonoBehaviour
         {
             guarding = new Guarding(this, _navMeshAgent, points, progressBar, 0.04f);
         }
-        var thiefFound = new ThiefFound(this, _navMeshAgent);
+        var thiefFound = new ThiefFound(this, _navMeshAgent, _fow);
         var lookingAround = new LookingAround(this, _navMeshAgent, progressBar);
         var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar);
         var distraction = new Distraction(this, _navMeshAgent, progressBar); 
@@ -91,6 +91,24 @@ public class Guard : MonoBehaviour
     {
         _stateMachine.Tick();
 
+    }
+
+    private void OnEnable()
+    {
+        ThiefFound.GameOver += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        ThiefFound.GameOver -= OnGameOver;
+    }
+    private void OnGameOver()
+    {
+        StopAllCoroutines();
+        if (_navMeshAgent.enabled)
+        {
+            _navMeshAgent.isStopped = true;
+        }
     }
 
     #region Public region
@@ -225,7 +243,6 @@ public class Guard : MonoBehaviour
         {
             _isAlertedByCoin = true;
             coinPoint = other.gameObject.transform.position;
-            //Debug.Log("[Guard OnTriggerEnter] Alerted by a coin");
         }
     }
 
@@ -257,9 +274,8 @@ public class Guard : MonoBehaviour
         if (other.gameObject.tag.Equals("Coin"))
         {
             _isAlertedByCoin = false;
-            //Debug.Log("[Guard OnTriggerExit] Collision trigger coin exited");
         }
     }
     #endregion
-
+   
 }

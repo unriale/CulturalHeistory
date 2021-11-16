@@ -19,7 +19,6 @@ public class Distraction : IState
         _progressBar = prog;
     }
 
-
     public void OnEnter()
     {
         _hadPath = false;
@@ -63,7 +62,6 @@ public class Distraction : IState
                 if (dist != Mathf.Infinity && _navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete && dist == 0)
                 {
                     // Arrived
-                    Debug.Log("ARRIVED");
                     _guard.ResetIsActing(); // back to guarding
                 }
             }

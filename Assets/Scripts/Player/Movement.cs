@@ -37,6 +37,21 @@ public class Movement : MonoBehaviour
         thief.transform.position = newPos;
     }
 
+    private void OnEnable()
+    {
+        ThiefFound.GameOver += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        ThiefFound.GameOver -= OnGameOver;
+    }
+
+    private void OnGameOver()
+    {
+        DisableMovement();
+    }
+
     public void EnableMovement() => _canMove = true;
     public void DisableMovement() => _canMove = false;
 

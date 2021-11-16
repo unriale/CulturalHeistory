@@ -56,7 +56,6 @@ public class FollowingNoise : IState
                 if (dist != Mathf.Infinity && _navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete && dist == 0)
                 {
                     // Arrived
-                    Debug.Log("ARRIVED");
                     _guard.ResetIsActing(); // back to guarding
                 }
             }
