@@ -22,7 +22,14 @@ public class SceneManagement : MonoBehaviour
 
     private void OnGameOver()
     {
-        // Do your stuff when the game is over
-        // ...
+        StartCoroutine(ReloadLevel());
+    }
+
+    IEnumerator ReloadLevel()
+    {
+        Fader fader = FindObjectOfType<Fader>();
+        yield return fader.FadeOut();
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        yield return fader.FadeIn();
     }
 }
