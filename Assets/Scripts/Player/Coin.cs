@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class Coin : MonoBehaviour
     
     private static int amount = 3;
 
+    public static event Action OnAmountChanged; 
+
 
     public void ThrowFrom(Vector3 hand, Vector3 aim, Transform player)
     {
@@ -21,6 +24,7 @@ public class Coin : MonoBehaviour
         Vector3 towards = aim - player.position;
         _rigidBody.AddForce(new Vector3(throwForce * towards.x, 0, throwForce * towards.z), ForceMode.Acceleration);
         ReduceCoinsAmount();
+        OnAmountChanged();
     }
 
     private void ReduceCoinsAmount() => --amount;

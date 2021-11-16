@@ -2284,7 +2284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018256666275630893, guid: 1f0f9e22092e45243b6926a3a73eae53, type: 3}
       propertyPath: m_Name
-      value: UI
+      value: Pickups UI
       objectReference: {fileID: 0}
     - target: {fileID: 3018256666275630896, guid: 1f0f9e22092e45243b6926a3a73eae53, type: 3}
       propertyPath: m_SortingOrder
