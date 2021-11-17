@@ -36,13 +36,13 @@ public class Throwing : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            if(time >= 1f) 
+            if (time >= 1f)
                 FindObjectOfType<Coin>().ThrowFrom(hand.position, instantiatedAim.transform.position, this.transform);
             time = 0;
             mover.EnableMovement();
             isAiming = false;
             Destroy(instantiatedAim);
-            instantiatedAim = null; 
+            instantiatedAim = null;
         }
     }
 

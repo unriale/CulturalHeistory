@@ -236,15 +236,15 @@ public class Guard : MonoBehaviour
         {
             lastPosition = this.transform.position;
             yield return new WaitForSeconds(refreshTime);
-            Debug.Log("Remaining distance by "+this.gameObject.name + ": " + _navMeshAgent.remainingDistance);
+            //Debug.Log("Remaining distance by "+this.gameObject.name + ": " + _navMeshAgent.remainingDistance);
             if (_navMeshAgent.hasPath && _navMeshAgent.remainingDistance > 0.0f)
             {
-                Debug.Log("I'm in the if");
+                //Debug.Log("I'm in the if");
                 Vector3 currentPosition = this.transform.position;
-                Debug.Log(this.gameObject.name+": "+Vector3.Distance(currentPosition, lastPosition).ToString());
+                //Debug.Log(this.gameObject.name+": "+Vector3.Distance(currentPosition, lastPosition).ToString());
                 if (Vector3.Distance(currentPosition, lastPosition) < 1.0f)
                 {
-                    Debug.Log("[Guard CheckNavMeshStuck]: Agent Stuck - Changing avoidance priority");
+                    //Debug.Log("[Guard CheckNavMeshStuck]: Agent Stuck - Changing avoidance priority");
                     int randPrio = UnityEngine.Random.Range(0, 51);
                     _navMeshAgent.avoidancePriority = randPrio;
                 }

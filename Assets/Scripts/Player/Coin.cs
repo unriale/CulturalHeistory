@@ -26,6 +26,7 @@ public class Coin : MonoBehaviour
         ReduceCoinsAmount();
         OnAmountChanged();
     }
+    public static void ReloadCoins() => amount = 3;
 
     private void ReduceCoinsAmount() => --amount;
 

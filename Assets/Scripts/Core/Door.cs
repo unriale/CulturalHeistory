@@ -26,6 +26,8 @@ public class Door : MonoBehaviour
         yield return fader.FadeOut();
         yield return SceneManager.LoadSceneAsync(doorTo.ToString());
         Door otherDoor = GetOtherDoor();
+        Pause pause = FindObjectOfType<Pause>();
+        pause.ChangeTreasuresUI();
         UpdatePlayer(otherDoor);
         yield return fader.FadeIn();
         Destroy(gameObject);

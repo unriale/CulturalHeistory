@@ -6,6 +6,7 @@ using UnityEngine;
 public class PersistentObjectsSpawner : MonoBehaviour
 {
     [SerializeField] GameObject persistentObjects;
+    public static GameObject persistentGameObjects;
 
     static bool hasSpawned = false;
 
@@ -16,9 +17,16 @@ public class PersistentObjectsSpawner : MonoBehaviour
         hasSpawned = true;
     }
 
+
     private void SpawnPersistentObjects()
     {
-        GameObject persistentGameObjects = Instantiate(persistentObjects);
+        persistentGameObjects = Instantiate(persistentObjects);
         DontDestroyOnLoad(persistentGameObjects);
+    }
+
+    public void DestroyPersistentGameObjects()
+    {
+        hasSpawned = false;
+        Destroy(persistentGameObjects);
     }
 }
