@@ -37,6 +37,12 @@ public class ThiefFound : IState
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(_fow.PlayerPosition);
         }
+        else
+        {
+            _navMeshAgent.enabled = true;
+            _navMeshAgent.isStopped = false;
+            _navMeshAgent.SetDestination(_guard.noisePoint);
+        }
     }
 
     public void OnExit()
