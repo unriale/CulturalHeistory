@@ -2821,6 +2821,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2858815201588115166}
     m_Modifications:
     - target: {fileID: 770269926467441521, guid: b87fa3c8468bf1b449cc03722e473d3d, type: 3}
+      propertyPath: points.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 770269926467441521, guid: b87fa3c8468bf1b449cc03722e473d3d, type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 659576958}

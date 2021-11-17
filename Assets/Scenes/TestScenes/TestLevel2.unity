@@ -1992,8 +1992,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: -2.2491531, y: 23.09539, z: -9.468478}
+  m_LocalRotation: {x: 0.4027441, y: -0.003290954, z: 0.0014480544, w: 0.91530555}
+  m_LocalPosition: {x: -2.2262688, y: 22.506, z: -10.133743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176478569}
@@ -2561,8 +2561,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 25.585087, y: 18.587269, z: 0}
-  m_Center: {x: 0.379488, y: 14.271936, z: -10.914158}
+  m_Size: {x: 68.3022, y: 29.002869, z: 30.155512}
+  m_Center: {x: 0.8033676, y: 30.03167, z: 3.0696878}
 --- !u!4 &1211159732
 Transform:
   m_ObjectHideFlags: 0
@@ -2571,7 +2571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211159730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0685391, y: 6.975766, z: 1.4456797}
+  m_LocalPosition: {x: 2.0685391, y: 6.975766, z: -19.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176478569}
@@ -2737,14 +2737,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265133684}
-  m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: -2.2491531, y: 23.09539, z: -6.9513855}
+  m_LocalRotation: {x: 0.4027441, y: -0.003290954, z: 0.0014480544, w: 0.91530555}
+  m_LocalPosition: {x: -2.2262688, y: 20.786606, z: -10.133743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1583791360}
   m_Father: {fileID: 1176478569}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 60.58, y: -0.412, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.5, y: -0.412, z: 0}
 --- !u!114 &1265133687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4885,7 +4885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &3250474327123432163
 PrefabInstance:
   m_ObjectHideFlags: 0
