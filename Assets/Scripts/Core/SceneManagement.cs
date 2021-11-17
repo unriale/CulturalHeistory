@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
+    private float _reloadDelay = 1.5f;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -22,12 +24,13 @@ public class SceneManagement : MonoBehaviour
 
     private void OnGameOver()
     {
-        StartCoroutine(ReloadLevel());
+        StartCoroutine(ReloadLevel(_reloadDelay));
     }
 
-    IEnumerator ReloadLevel()
+    private IEnumerator ReloadLevel(float delay)
     {
         Fader fader = FindObjectOfType<Fader>();
+        yield return new WaitForSeconds(delay);
         yield return fader.FadeOut();
         yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         yield return fader.FadeIn();
