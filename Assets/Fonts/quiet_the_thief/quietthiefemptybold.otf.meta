@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: b1389f6c66ebf8549bcb7f56e845f084
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Quiet the Thief
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 215a532251803874887fffa42ad02dda, type: 3}
+  - {fileID: 12800000, guid: 307ce13ef03736142b1b8e5f3d38b9ed, type: 3}
+  - {fileID: 12800000, guid: 00b70cf4aed5abf489d70263634369db, type: 3}
+  - {fileID: 12800000, guid: e0530636262db894e917f3b783a2202f, type: 3}
+  - {fileID: 12800000, guid: 106f17fcf55e97b4b8cb7a7261f16208, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

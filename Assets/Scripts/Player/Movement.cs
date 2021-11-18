@@ -6,14 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed = 6f;
+    [SerializeField] protected float walkSpeed = 6f;
     [SerializeField] private float runningSpeed = 13f;
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] Animator animator;
     [SerializeField] GameObject thief;
 
-    private bool _canMove = true;
-    private CharacterController controller;
+    protected bool _canMove = true;
+    protected CharacterController controller;
     private float minMagnitude = 0.01f;
     private float speed = 0;
 
@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
     public void EnableMovement() => _canMove = true;
     public void DisableMovement() => _canMove = false;
 
-    private void Move()
+    protected virtual void Move()
     {
         if (!_canMove) return;
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -70,7 +70,7 @@ public class Movement : MonoBehaviour
 
 
 
-    private void StartMoving(float horizontalInput, float verticalInput)
+    protected void StartMoving(float horizontalInput, float verticalInput)
     { 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         controller.SimpleMove(movementDirection * speed);
@@ -83,14 +83,14 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void ChangeStateToStay()
+    protected void ChangeStateToStay()
     {
         animator.SetBool("walk", false);
         IsWalking = IsRunning = false;
         IsStaying = !IsWalking && !IsRunning;
     }
 
-    private void ChangeStateToWalk()
+    protected void ChangeStateToWalk()
     {
         animator.SetBool("walk", true);
         speed = walkSpeed;
@@ -98,14 +98,14 @@ public class Movement : MonoBehaviour
         IsStaying = IsRunning = false;
     }
 
-    private void ChangeStateToRun()
+    protected void ChangeStateToRun()
     {
         speed = runningSpeed;
         IsRunning = true;
         IsStaying = IsWalking = false;
     }
 
-    private bool Walking()
+    protected bool Walking()
     {
         return controller.velocity != Vector3.zero;
     }
