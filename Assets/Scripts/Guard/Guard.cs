@@ -116,6 +116,7 @@ public class Guard : MonoBehaviour
         if (_navMeshAgent.enabled)
         {
             _navMeshAgent.isStopped = true;
+            animator.SetBool("isWalking", false);
         }
     }
 
