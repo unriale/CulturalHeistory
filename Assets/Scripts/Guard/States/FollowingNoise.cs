@@ -8,14 +8,16 @@ public class FollowingNoise : IState
     private Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
+    private Animator _animator;
 
     private bool _hadPath = false;
 
-    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog)
+    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
         _progressBar = prog;
+        _animator = anim;
     }
 
     public void OnEnter()
@@ -33,11 +35,15 @@ public class FollowingNoise : IState
 
         _navMeshAgent.SetDestination(_guard.noisePoint);
         _guard.SetIsActing();
+
+        // Animations
+        _animator.SetBool("isWalking", true);
     }
 
     public void OnExit()
     {
-        
+        // Animations
+        _animator.SetBool("isWalking", false);
     }
 
     public void Tick()

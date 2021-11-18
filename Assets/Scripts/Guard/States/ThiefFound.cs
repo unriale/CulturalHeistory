@@ -13,15 +13,17 @@ public class ThiefFound : IState
     private readonly Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fow;
+    private Animator _animator;
 
     private bool _enterOnce = false;
     private bool _hadPath = false;
 
-    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow)
+    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow, Animator anim)
     {
         _guard = guard;
         _navMeshAgent = agent;
         _fow = fow;
+        _animator = anim;
     }
 
     public void OnEnter()
@@ -43,11 +45,14 @@ public class ThiefFound : IState
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(_guard.noisePoint);
         }
+
+        // Animations
+        _animator.SetBool("isWalking", true);
     }
 
     public void OnExit()
     {
-        
+
     }
 
     public void Tick()
@@ -67,6 +72,9 @@ public class ThiefFound : IState
                 _enterOnce = true;
                 // Arrived
                 _navMeshAgent.isStopped = true; // Stop in front of the player
+
+                // Animations
+                _animator.SetBool("isWalking", false);
             }
         }
 

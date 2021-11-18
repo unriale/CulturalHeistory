@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0eb9165689a44fa85835db0446bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6842651668858959067}
   progressBar: {fileID: 770269926764740794}
   exclamationMark: {fileID: 770269925548065052}
   isFollowingRandomPath: 0
@@ -1025,10 +1026,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: guard
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c26c0f8bd69f7b846825a790e41e7d76, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7c4f8345438527d44928a3da81c76f65, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26c0f8bd69f7b846825a790e41e7d76, type: 3}
 --- !u!4 &582608829836930721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c26c0f8bd69f7b846825a790e41e7d76, type: 3}
+  m_PrefabInstance: {fileID: 1125740312968481098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6842651668858959067 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c26c0f8bd69f7b846825a790e41e7d76, type: 3}
   m_PrefabInstance: {fileID: 1125740312968481098}
   m_PrefabAsset: {fileID: 0}

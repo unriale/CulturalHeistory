@@ -8,12 +8,14 @@ public class LookingAround : IState
     private readonly Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
+    private Animator _animator;
 
-    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog)
+    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
         _progressBar = prog;
+        _animator = anim;
     }
 
     public void OnEnter()
@@ -28,6 +30,9 @@ public class LookingAround : IState
         //_guard.StopAllCoroutines();
         _guard.StopCoroutine("LookAroundWithDelay");
         _guard.ResetIsActing();
+
+        // Animations
+        _animator.SetBool("isWalking", false);
     }
 
     public void OnExit()

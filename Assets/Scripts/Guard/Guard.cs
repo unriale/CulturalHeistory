@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
+    [Header("General Settings")]
+    [SerializeField] private Animator animator;
+
     [Header("UI References")]
     [SerializeField] private GuardProgressBar progressBar;
     [SerializeField] private ExclamationMark exclamationMark;
@@ -55,15 +58,15 @@ public class Guard : MonoBehaviour
         IState guarding;
         if (isFollowingRandomPath)
         {
-            guarding = new RandomGuarding(this, _navMeshAgent, points, progressBar, 0.04f);
+            guarding = new RandomGuarding(this, _navMeshAgent, points, progressBar, 0.04f, animator);
         }
         else
         {
-            guarding = new Guarding(this, _navMeshAgent, points, progressBar, 0.04f);
+            guarding = new Guarding(this, _navMeshAgent, points, progressBar, 0.04f, animator);
         }
-        var thiefFound = new ThiefFound(this, _navMeshAgent, _fow);
-        var lookingAround = new LookingAround(this, _navMeshAgent, progressBar);
-        var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar);
+        var thiefFound = new ThiefFound(this, _navMeshAgent, _fow, animator);
+        var lookingAround = new LookingAround(this, _navMeshAgent, progressBar,animator);
+        var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar,animator);
         var distraction = new Distraction(this, _navMeshAgent, progressBar); 
 
         // Transitions and Any-Transitions

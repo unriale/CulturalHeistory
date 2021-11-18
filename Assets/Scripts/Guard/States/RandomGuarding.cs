@@ -9,11 +9,12 @@ public class RandomGuarding : IState
     private NavMeshAgent _navMeshAgent;
     private Transform[] _navPoints;
     private GuardProgressBar _progressBar;
+    private Animator _animator;
     private float _decreaseAmount;
 
     private int indexPoint; // index for random point choice
 
-    public RandomGuarding(Guard guard, NavMeshAgent navMeshAgent, Transform[] navPoints, GuardProgressBar prog, float decreaseAmount)
+    public RandomGuarding(Guard guard, NavMeshAgent navMeshAgent, Transform[] navPoints, GuardProgressBar prog, float decreaseAmount, Animator anim)
     {
         _guard = guard;
         _navMeshAgent = navMeshAgent;
@@ -21,6 +22,7 @@ public class RandomGuarding : IState
         _progressBar = prog;
         indexPoint = 0;
         _decreaseAmount = decreaseAmount;
+        _animator = anim;
     }
 
     public void OnEnter()
@@ -37,12 +39,17 @@ public class RandomGuarding : IState
 
         // Reset Exclamation Mark, so that can be displayed again
         _guard.RestExclamationMark();
+
+        // Animations
+        _animator.SetBool("isWalking", true);
     }
 
     public void OnExit()
     {
         _navMeshAgent.isStopped = true;
         _navMeshAgent.enabled = false;
+        // Animations
+        _animator.SetBool("isWalking", false);
     }
     public void Tick()
     {
