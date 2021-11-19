@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    [Header("Pickup settings")]
     [Tooltip("Time in seconds to delay destroy")]
     [SerializeField] float destroyDelay = 2f;
     [SerializeField] Treasure _treasure;
     [SerializeField] Slot slot;
     public float PickupRadius = 2f;
+
+    [Header("Cursor settings")]
+    public Texture2D pickupCursorTexture;
+    public Texture2D gameCursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
     private bool isPickedUp = false;
     private Transform player;
@@ -54,5 +61,15 @@ public class Pickup : MonoBehaviour
     private int GetAmountLeft()
     {
         return _treasure.maxAmount - _treasure.currentAmount;
+    }
+
+    private void OnMouseEnter()
+    {
+        Cursor.SetCursor(pickupCursorTexture, hotSpot, cursorMode);
+    }
+
+    private void OnMouseExit()
+    {
+        Cursor.SetCursor(gameCursorTexture, hotSpot, cursorMode);
     }
 }

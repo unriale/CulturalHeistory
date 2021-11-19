@@ -5,6 +5,7 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 Assets/StoneUI*
+Assets/Pixel Cursors/*
 
 # Visual Studio cache directory
 .vs/
@@ -38,3 +39,4 @@ sysinfo.txt
 *.unitypackage
 *.log
 *.log
+Assets/Pixel Cursors/Cursors.meta
