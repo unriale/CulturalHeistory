@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SFXCollection : MonoBehaviour
+public class SFXGuardCollection : MonoBehaviour
 {
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] SFXs;

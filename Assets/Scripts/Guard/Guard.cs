@@ -8,7 +8,7 @@ public class Guard : MonoBehaviour
 {
     [Header("General Settings")]
     [SerializeField] private Animator animator;
-    [SerializeField] private SFXCollection sfxs;
+    [SerializeField] private SFXGuardCollection sfxs;
 
     [Header("UI References")]
     [SerializeField] private GuardProgressBar progressBar;

@@ -8,12 +8,12 @@ public class Distraction : IState
     private Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
-    private SFXCollection _sfxs;
+    private SFXGuardCollection _sfxs;
 
     private bool _hadPath = false;
     private bool _increaseOnce = false;
 
-    public Distraction(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, SFXCollection sfxs)
+    public Distraction(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, SFXGuardCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;

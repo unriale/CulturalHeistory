@@ -9,11 +9,11 @@ public class FollowingNoise : IState
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
     private Animator _animator;
-    private SFXCollection _sfxs;
+    private SFXGuardCollection _sfxs;
 
     private bool _hadPath = false;
 
-    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXCollection sfxs)
+    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXGuardCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;

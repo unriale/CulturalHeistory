@@ -14,12 +14,12 @@ public class ThiefFound : IState
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fow;
     private Animator _animator;
-    private SFXCollection _sfxs;
+    private SFXGuardCollection _sfxs;
 
     private bool _enterOnce = false;
     private bool _hadPath = false;
 
-    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow, Animator anim, SFXCollection sfxs)
+    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow, Animator anim, SFXGuardCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = agent;

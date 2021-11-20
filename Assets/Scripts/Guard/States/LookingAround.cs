@@ -9,9 +9,9 @@ public class LookingAround : IState
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
     private Animator _animator;
-    private SFXCollection _sfxs;
+    private SFXGuardCollection _sfxs;
 
-    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXCollection sfxs)
+    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXGuardCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
