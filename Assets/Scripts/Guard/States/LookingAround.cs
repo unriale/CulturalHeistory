@@ -9,17 +9,22 @@ public class LookingAround : IState
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
     private Animator _animator;
+    private SFXCollection _sfxs;
 
-    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim)
+    public LookingAround(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
         _progressBar = prog;
         _animator = anim;
+        _sfxs = sfxs;
     }
 
     public void OnEnter()
     {
+        // Play Suspect SFX
+        _sfxs.PlaySFX(0);
+
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
 

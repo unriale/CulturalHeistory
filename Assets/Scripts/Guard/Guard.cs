@@ -8,6 +8,7 @@ public class Guard : MonoBehaviour
 {
     [Header("General Settings")]
     [SerializeField] private Animator animator;
+    [SerializeField] private SFXCollection sfxs;
 
     [Header("UI References")]
     [SerializeField] private GuardProgressBar progressBar;
@@ -64,9 +65,9 @@ public class Guard : MonoBehaviour
         {
             guarding = new Guarding(this, _navMeshAgent, points, progressBar, 0.04f, animator);
         }
-        var thiefFound = new ThiefFound(this, _navMeshAgent, _fow, animator);
-        var lookingAround = new LookingAround(this, _navMeshAgent, progressBar,animator);
-        var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar,animator);
+        var thiefFound = new ThiefFound(this, _navMeshAgent, _fow, animator,sfxs);
+        var lookingAround = new LookingAround(this, _navMeshAgent, progressBar,animator,sfxs);
+        var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar,animator, sfxs);
         var distraction = new Distraction(this, _navMeshAgent, progressBar); 
 
         // Transitions and Any-Transitions

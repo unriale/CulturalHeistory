@@ -14,20 +14,25 @@ public class ThiefFound : IState
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fow;
     private Animator _animator;
+    private SFXCollection _sfxs;
 
     private bool _enterOnce = false;
     private bool _hadPath = false;
 
-    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow, Animator anim)
+    public ThiefFound(Guard guard, NavMeshAgent agent, FieldOfView fow, Animator anim, SFXCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = agent;
         _fow = fow;
         _animator = anim;
+        _sfxs = sfxs;
     }
 
     public void OnEnter()
     {
+        // Play Caught SFX
+        _sfxs.PlaySFX(1);
+
         _guard.StopAllCoroutines();
 
         // Invoke GameOver event

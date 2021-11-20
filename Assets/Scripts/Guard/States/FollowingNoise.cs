@@ -9,19 +9,24 @@ public class FollowingNoise : IState
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
     private Animator _animator;
+    private SFXCollection _sfxs;
 
     private bool _hadPath = false;
 
-    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim)
+    public FollowingNoise(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, Animator anim, SFXCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
         _progressBar = prog;
         _animator = anim;
+        _sfxs = sfxs;
     }
 
     public void OnEnter()
     {
+        // Play Suspect SFX
+        _sfxs.PlaySFX(0);
+
         _hadPath = false;
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
