@@ -68,7 +68,7 @@ public class Guard : MonoBehaviour
         var thiefFound = new ThiefFound(this, _navMeshAgent, _fow, animator,sfxs);
         var lookingAround = new LookingAround(this, _navMeshAgent, progressBar,animator,sfxs);
         var followingNoise = new FollowingNoise(this, _navMeshAgent, progressBar,animator, sfxs);
-        var distraction = new Distraction(this, _navMeshAgent, progressBar); 
+        var distraction = new Distraction(this, _navMeshAgent, progressBar, sfxs); 
 
         // Transitions and Any-Transitions
         At(guarding, lookingAround, ShouldLookAround());
@@ -114,6 +114,7 @@ public class Guard : MonoBehaviour
     private void OnGameOver()
     {
         StopAllCoroutines();
+        sfxs.StopChatCycle();
         if (_navMeshAgent.enabled)
         {
             _navMeshAgent.isStopped = true;

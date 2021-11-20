@@ -8,19 +8,25 @@ public class Distraction : IState
     private Guard _guard;
     private NavMeshAgent _navMeshAgent;
     private GuardProgressBar _progressBar;
+    private SFXCollection _sfxs;
 
     private bool _hadPath = false;
     private bool _increaseOnce = false;
 
-    public Distraction(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog)
+    public Distraction(Guard guard, NavMeshAgent navMesh, GuardProgressBar prog, SFXCollection sfxs)
     {
         _guard = guard;
         _navMeshAgent = navMesh;
         _progressBar = prog;
+        _sfxs = sfxs;
     }
 
     public void OnEnter()
     {
+        // Play Suspect SFX
+        _sfxs.PlaySFX(0);
+        _sfxs.PlayHearNoiseVoice();
+
         _hadPath = false;
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;

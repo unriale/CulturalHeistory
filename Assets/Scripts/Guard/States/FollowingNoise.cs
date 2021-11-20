@@ -26,6 +26,7 @@ public class FollowingNoise : IState
     {
         // Play Suspect SFX
         _sfxs.PlaySFX(0);
+        _sfxs.PlayHearNoiseVoice();
 
         _hadPath = false;
         _navMeshAgent.enabled = true;

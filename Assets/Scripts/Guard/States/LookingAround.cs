@@ -24,6 +24,7 @@ public class LookingAround : IState
     {
         // Play Suspect SFX
         _sfxs.PlaySFX(0);
+        _sfxs.PlayHearNoiseVoice();
 
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
