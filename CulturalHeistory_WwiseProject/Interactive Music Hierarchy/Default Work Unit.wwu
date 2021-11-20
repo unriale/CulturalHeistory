@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1FEE6ABA-8549-42B3-B7B4-7B7F63D377C7}" SchemaVersion="103">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{1FEE6ABA-8549-42B3-B7B4-7B7F63D377C7}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1FEE6ABA-8549-42B3-B7B4-7B7F63D377C7}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="La Dernière Musique DE OUF" ID="{504B3398-5445-4C64-9EF4-2619EC198763}" ShortID="320151669">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="134447.369614512"/>
+						<Property Name="OutputBusVolume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{803C3CCE-E410-4232-AEE1-CF1624FC95E1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{81D61B6E-4312-4A99-98B8-2DDFBA8B081E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="La Dernière Musique DE OUF" ID="{487A3C97-2249-44DB-AB85-D66EBE43159F}" ShortID="624824864">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{81D61B6E-4312-4A99-98B8-2DDFBA8B081E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="La Dernière Musique DE OUF" ID="{3B51C4EC-5060-4DBD-B520-25616B09795F}">
+									<Language>SFX</Language>
+									<AudioFile>La Dernière Musique DE OUF.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="230500425"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{C8D80270-35DC-4E96-80DC-BF916DF2CB14}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{6D5097C5-E637-44A6-99BD-94F253780267}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="La Dernière Musique DE OUF" ID="{600F599B-BB22-44C0-A367-078B33893D37}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="134447.369614512"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="La Dernière Musique DE OUF" ID="{3B51C4EC-5060-4DBD-B520-25616B09795F}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{1733486A-807A-4B3E-B7ED-796153CB0ADD}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{EA156A9D-D8C3-44C1-830A-2954884BD412}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="134447.369614512"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>
