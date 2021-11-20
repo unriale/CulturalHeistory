@@ -5,6 +5,7 @@ using UnityEngine;
 // REMEMBER: FoN object must be on a different layermask from the coin or the collisions are fucked up
 // REMEMBER: FoN object must have a rigidbody component kinematic - this allow to prevent Collision Trigger Bubbling
 [RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class CoinFoN : MonoBehaviour
 {
     [SerializeField] private float radius = 1.5f;
@@ -13,10 +14,14 @@ public class CoinFoN : MonoBehaviour
     private SphereCollider _sphereCollider;
     private bool _isTimerActive = false;
 
+    private AudioSource _audioSource;
+
     private void Awake()
     {
         _sphereCollider = GetComponent<SphereCollider>();
         _sphereCollider.radius = 0.02f;
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -28,6 +33,7 @@ public class CoinFoN : MonoBehaviour
     {
         if (other.gameObject.layer.ToString().Equals("12")) // Floor layer
         {
+            _audioSource.Play();
             _sphereCollider.radius = radius;
             if (!_isTimerActive)
             {
