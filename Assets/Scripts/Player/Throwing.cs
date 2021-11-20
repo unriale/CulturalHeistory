@@ -12,6 +12,7 @@ public class Throwing : MonoBehaviour
     [SerializeField] private float rotationSpeed = 3.5f;
     [Tooltip("Reference to a hand which will throw a coin")] 
     [SerializeField] Transform hand;
+    [SerializeField] Animator animator;
 
     private float time = 0;
     private bool isAiming = false;
@@ -37,7 +38,10 @@ public class Throwing : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             if (time >= 1f)
-                FindObjectOfType<Coin>().ThrowFrom(hand.position, instantiatedAim.transform.position, this.transform);
+            {
+                if(instantiatedAim)
+                    FindObjectOfType<Coin>().ThrowFrom(hand.position, instantiatedAim.transform.position, this.transform, animator);
+            }
             time = 0;
             mover.EnableMovement();
             isAiming = false;
@@ -66,8 +70,9 @@ public class Throwing : MonoBehaviour
 
     private void DrawAimInScene()
     {
-        // TODO: Play animation (arm is up, aiming)
+        if (FindObjectOfType<Coin>().GetCoinsAmount() <= 0) return;
         isAiming = true;
+        animator.SetBool("HoldingThrow", true);
         mover.DisableMovement();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

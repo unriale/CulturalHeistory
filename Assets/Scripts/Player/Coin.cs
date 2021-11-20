@@ -15,10 +15,16 @@ public class Coin : MonoBehaviour
     public static event Action OnAmountChanged; 
 
 
-    public void ThrowFrom(Vector3 hand, Vector3 aim, Transform player)
+    public void ThrowFrom(Vector3 hand, Vector3 aim, Transform player, Animator animator)
     {
-        // TODO: instantiate from the hand once we have an animation
         if (amount <= 0) return;
+        animator.SetBool("HoldingThrow", false);
+        StartCoroutine(ThrowWithDelay(hand, aim, player));
+    }
+
+    IEnumerator ThrowWithDelay(Vector3 hand, Vector3 aim, Transform player)
+    {
+        yield return new WaitForSeconds(0.45f);
         GameObject coin = Instantiate(coinPrefab, hand, coinPrefab.transform.rotation);
         _rigidBody = coin.GetComponent<Rigidbody>();
         Vector3 towards = aim - player.position;
@@ -26,6 +32,7 @@ public class Coin : MonoBehaviour
         ReduceCoinsAmount();
         OnAmountChanged();
     }
+
     public static void ReloadCoins() => amount = 3;
 
     private void ReduceCoinsAmount() => --amount;
