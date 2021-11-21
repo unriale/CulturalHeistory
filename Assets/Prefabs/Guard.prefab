@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec21c25a9c30e134db4edd3fb8b98d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewRadius: 4.12
+  ViewRadius: 10
   ViewAngle: 70
   spotLight: {fileID: 2099962591951001048}
   MeshResolution: 1
