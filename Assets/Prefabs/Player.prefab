@@ -303,8 +303,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   rotationSpeed: 3.5
-  hand: {fileID: 8831245874146720110}
-  animator: {fileID: 0}
+  hand: {fileID: 7032991438803773219}
+  animator: {fileID: 261697141629915958}
 --- !u!81 &1204022076288684179
 AudioListener:
   m_ObjectHideFlags: 0
@@ -538,9 +538,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 465ae7c262470a2498bf767854a2be66, type: 3}
   - {fileID: 8300000, guid: 11985d9eff3f3e743b6b5df5e220ded9, type: 3}
   - {fileID: 8300000, guid: 62dcb1f30afe8c14f81587f011fcf98b, type: 3}
-  voiceActingClips: []
   walkCycleAudioSource: {fileID: 8170087822620977046}
-  voiceActingSource: {fileID: 6432156347322123389}
 --- !u!82 &8170087822620977046
 AudioSource:
   m_ObjectHideFlags: 0
@@ -827,5 +825,10 @@ Transform:
 --- !u!95 &261697141629915958 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
+  m_PrefabInstance: {fileID: 5965907761489686183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7032991438803773219 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3697769701046585732, guid: 1eadc276c95673746b160a6438dfbdba, type: 3}
   m_PrefabInstance: {fileID: 5965907761489686183}
   m_PrefabAsset: {fileID: 0}
