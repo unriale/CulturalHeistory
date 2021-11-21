@@ -59,6 +59,9 @@ public class Pickup : MonoBehaviour
     IEnumerator PickUpItem()
     {
         print("Picking up animation");
+        // Play Steal animation HERE (UNCOMMENT THIS) - TODO: Implement the PlayStealAnimation method
+        // player.GetComponent<Movement>().PlayStealAnimation();
+        // --------
         isPickedUp = true;
         if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++;
         player.GetComponent<Movement>().DisableMovement();

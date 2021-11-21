@@ -70,6 +70,11 @@ public class Movement : MonoBehaviour
     public void EnableMovement() => _canMove = true;
     public void DisableMovement() => _canMove = false;
 
+    public void PlayStealAnimation()
+    {
+        // Set the animator here
+    }
+
     protected virtual void Move()
     {
         if (!_canMove) return;
@@ -129,4 +134,5 @@ public class Movement : MonoBehaviour
     {
         return (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && controller.velocity != Vector3.zero;
     }
+
 }
