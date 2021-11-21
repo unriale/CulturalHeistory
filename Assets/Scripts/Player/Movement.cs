@@ -6,6 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
+    [Header("SFX")]
+    [SerializeField] private SFXPlayerCollection _sfxs;
+
+    [Header("Movement Settings")]
     [SerializeField] protected float walkSpeed = 6f;
     [SerializeField] private float runningSpeed = 13f;
     [SerializeField] private float rotationSpeed = 3f;
@@ -28,6 +32,15 @@ public class Movement : MonoBehaviour
     {
         Move();
         UpdatePosition();
+
+        if (IsWalking)
+        {
+            _sfxs.PlayWalkCycle();
+        }
+        else if (IsRunning)
+        {
+            _sfxs.PlayRunCycle();
+        }
     }
 
     void UpdatePosition()
@@ -50,6 +63,8 @@ public class Movement : MonoBehaviour
     private void OnGameOver()
     {
         DisableMovement();
+        IsWalking = false;
+        IsRunning = false;
     }
 
     public void EnableMovement() => _canMove = true;

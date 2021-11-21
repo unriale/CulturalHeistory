@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5478eab28d0de694b98789944bc91d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxs: {fileID: 493623208691614526}
   walkSpeed: 2
   runningSpeed: 6
   rotationSpeed: 2
@@ -520,9 +521,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17837e3f22af65f448b2ead9cdec2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkCycleClips: []
+  walkCycleClips:
+  - {fileID: 8300000, guid: 0737e6a4984256c48b8ea72352e35abf, type: 3}
+  - {fileID: 8300000, guid: e201ace280fecfd41b665adf0b2e64d7, type: 3}
+  - {fileID: 8300000, guid: f80891c46e852384fbfd28cb33767149, type: 3}
+  - {fileID: 8300000, guid: b0ef261205fe21442b1f92b0435c65b2, type: 3}
+  - {fileID: 8300000, guid: b0ca02c011456b342805aa5709278bef, type: 3}
+  - {fileID: 8300000, guid: cd63d096cddfad7488b59ad951e7255d, type: 3}
+  - {fileID: 8300000, guid: 2dd8caaa931fad74196639bfb2a5c656, type: 3}
+  - {fileID: 8300000, guid: c5604451e3b6b9149822488b3f640374, type: 3}
+  - {fileID: 8300000, guid: 18cbe00ff1c97b843993d70770f54da1, type: 3}
+  - {fileID: 8300000, guid: 078594308adfbd7438d705606b3ee478, type: 3}
+  - {fileID: 8300000, guid: 5fb062e1fd8cc1849b9a804ea8249f6a, type: 3}
+  - {fileID: 8300000, guid: c967b8688d808364c99c7734afb9f0e1, type: 3}
+  - {fileID: 8300000, guid: 1911a5c90fdc7994c9b6fe66237d0d48, type: 3}
+  - {fileID: 8300000, guid: 465ae7c262470a2498bf767854a2be66, type: 3}
+  - {fileID: 8300000, guid: 11985d9eff3f3e743b6b5df5e220ded9, type: 3}
+  - {fileID: 8300000, guid: 62dcb1f30afe8c14f81587f011fcf98b, type: 3}
   voiceActingClips: []
-  SFXAudioSource: {fileID: 0}
   walkCycleAudioSource: {fileID: 8170087822620977046}
   voiceActingSource: {fileID: 6432156347322123389}
 --- !u!82 &8170087822620977046
@@ -536,8 +552,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -581,7 +597,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -632,7 +648,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

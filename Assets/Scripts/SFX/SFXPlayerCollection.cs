@@ -6,15 +6,15 @@ public class SFXPlayerCollection : MonoBehaviour
 {
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] walkCycleClips;
-    [SerializeField] private AudioClip[] voiceActingClips;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource walkCycleAudioSource;
-    [SerializeField] private AudioSource voiceActingSource;
+
+    private bool isWalking = false;
+    private bool isRunning = false;
 
     private void Awake()
-    {
-        voiceActingSource.playOnAwake = false;
+    { 
         walkCycleAudioSource.playOnAwake = false;
     }
 
@@ -26,5 +26,37 @@ public class SFXPlayerCollection : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayWalkCycle()
+    {
+        if (isRunning && walkCycleAudioSource.isPlaying)
+        {
+            walkCycleAudioSource.Stop();
+        }
+        if (!walkCycleAudioSource.isPlaying)
+        {
+            isRunning = false;
+            isWalking = true;
+            int randIndex = Random.Range(0, 8); // WalkCycle indecies
+            walkCycleAudioSource.clip = walkCycleClips[randIndex];
+            walkCycleAudioSource.Play();
+        }
+    }
+
+    public void PlayRunCycle()
+    {
+        if (isWalking && walkCycleAudioSource.isPlaying)
+        {
+            walkCycleAudioSource.Stop();
+        }
+        if (!walkCycleAudioSource.isPlaying)
+        {
+            isRunning = true;
+            isWalking = false;
+            int randIndex = Random.Range(8, 16); // RunCycle indecies
+            walkCycleAudioSource.clip = walkCycleClips[randIndex];
+            walkCycleAudioSource.Play();
+        }
     }
 }
