@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Pickup : MonoBehaviour
 {
     [Header("Pickup settings")]
@@ -20,6 +21,13 @@ public class Pickup : MonoBehaviour
 
     private bool isPickedUp = false;
     private Transform player;
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
+    }
 
     private void Start()
     {
@@ -37,7 +45,10 @@ public class Pickup : MonoBehaviour
     {
         if (PlayerIsFarAway()) return;
         if (Input.GetKeyDown(KeyCode.E))
-            if (!isPickedUp) StartCoroutine(PickUpItem());
+            if (!isPickedUp) {
+                _audioSource.Play(); // Play PickUp SFX
+                StartCoroutine(PickUpItem()); 
+            }
     }
 
     private bool PlayerIsFarAway()
@@ -54,7 +65,7 @@ public class Pickup : MonoBehaviour
         slot.UpdateAmount(GetAmountLeft(), destroyDelay);
         yield return new WaitForSeconds(destroyDelay);
         player.GetComponent<Movement>().EnableMovement();
-        // TODO: VFX + SFX
+        // TODO: VFX + SFX // You can't play a SFX here, the object will be destroyed soon after
         Destroy(gameObject);
     }
 
