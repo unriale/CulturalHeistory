@@ -61,5 +61,11 @@ public class MusicManager : MonoBehaviour
             _audioSource.clip = musics[3];
             _audioSource.Play();
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Menu") && (!_audioSource.clip.name.Equals(musics[4].name)))
+        {
+            _audioSource.Stop();
+            _audioSource.clip = musics[4];
+            _audioSource.Play();
+        }
     }
 }
