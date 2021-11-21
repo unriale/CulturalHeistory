@@ -40,5 +40,4 @@ sysinfo.txt
 *.log
 *.log
 Assets/Pixel Cursors/Cursors.meta
-*.meta
 UserSettings/EditorUserSettings.asset
