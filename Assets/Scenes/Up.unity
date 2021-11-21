@@ -781,8 +781,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 3 Egyptian
       objectReference: {fileID: 0}
+    - target: {fileID: 7207128268276238487, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+      propertyPath: id
+      value: c6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+--- !u!1 &132213038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6346244716779630767, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+  m_PrefabInstance: {fileID: 132213037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &132213039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132213038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c6
 --- !u!1 &158475117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,8 +1230,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 4 Egyptian (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7774199556573457041, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+      propertyPath: id
+      value: c7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+--- !u!1 &273971554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6338040516912747177, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+  m_PrefabInstance: {fileID: 273971553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &273971555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273971554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c7
 --- !u!1001 &301682996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2049,8 +2093,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 4 Egyptian
       objectReference: {fileID: 0}
+    - target: {fileID: 7774199556573457041, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+      propertyPath: id
+      value: c5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+--- !u!1 &625689712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6338040516912747177, guid: aae79bdf7158e6c43a9bcdbe52e4e69b, type: 3}
+  m_PrefabInstance: {fileID: 625689711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &625689713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625689712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c5
 --- !u!1 &659576954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,7 +3696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: -10.344517, y: 23.095394, z: -9.468478}
+  m_LocalPosition: {x: 0.9308474, y: 23.095394, z: -9.468478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176478569}
@@ -5183,7 +5249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265133684}
   m_LocalRotation: {x: 0.50437367, y: -0.0031046097, z: 0.0018134605, w: 0.86347806}
-  m_LocalPosition: {x: -13.279152, y: 23.095394, z: -6.9513855}
+  m_LocalPosition: {x: 0.9308474, y: 23.095394, z: -14.451386}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1583791360}
@@ -5622,8 +5688,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 3 Egyptian (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7207128268276238487, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+      propertyPath: id
+      value: c8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+--- !u!1 &1434435604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6346244716779630767, guid: 7bcbd93146a0bd243b771b90540feb83, type: 3}
+  m_PrefabInstance: {fileID: 1434435603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1434435605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434435604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c8
 --- !u!1 &1484689483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1927499197161098, guid: 22d5920762e594f4e9de30162a07c2af, type: 3}
@@ -7004,7 +7092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.41
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7012,7 +7100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_LocalRotation.w

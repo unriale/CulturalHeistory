@@ -1406,8 +1406,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 5 Mayan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 294282382011483694, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+      propertyPath: id
+      value: c9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+--- !u!1 &339304679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 294282382011483692, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+  m_PrefabInstance: {fileID: 339304678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &339304680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339304679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c9
 --- !u!1 &396366606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,8 +2351,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure 5 Mayan (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 294282382011483694, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+      propertyPath: id
+      value: c10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+--- !u!1 &630521171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 294282382011483692, guid: 8721c846a21dba74cbf5fb1b432ca79d, type: 3}
+  m_PrefabInstance: {fileID: 630521170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &630521172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630521171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: c10
 --- !u!1 &659576954
 GameObject:
   m_ObjectHideFlags: 0

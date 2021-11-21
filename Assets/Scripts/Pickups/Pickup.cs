@@ -11,6 +11,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] float destroyDelay = 2f;
     [SerializeField] Treasure _treasure;
     [SerializeField] string slotTag = "";
+    [SerializeField] string id = "";
     public float PickupRadius = 2f;
 
     [Header("Cursor settings")]
@@ -31,9 +32,9 @@ public class Pickup : MonoBehaviour
 
     private void Start()
     {
-        _treasure.currentAmount = 0;
+        //_treasure.currentAmount = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().SetInitialTextAmount();
+        //GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().SetInitialTextAmount();
     }
 
     private void Update()
@@ -58,14 +59,18 @@ public class Pickup : MonoBehaviour
 
     IEnumerator PickUpItem()
     {
-        print("Picking up animation");
+        PlayerPrefs.SetInt(id, 1); // 1-picked up
+        FindObjectOfType<WinCondition>().DecrementTreasures();
         // Play Steal animation HERE (UNCOMMENT THIS) - TODO: Implement the PlayStealAnimation method
         player.GetComponent<Movement>().PlayStealAnimation();
         // --------
         isPickedUp = true;
         if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++;
         player.GetComponent<Movement>().DisableMovement();
-        GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().UpdateAmount(GetAmountLeft(), destroyDelay);
+        if (GameObject.FindGameObjectWithTag(slotTag))
+        {
+            GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().UpdateAmount(GetAmountLeft(), destroyDelay);
+        }
         yield return new WaitForSeconds(destroyDelay);
         player.GetComponent<Movement>().EnableMovement();
         // TODO: VFX + SFX // You can't play a SFX here, the object will be destroyed soon after

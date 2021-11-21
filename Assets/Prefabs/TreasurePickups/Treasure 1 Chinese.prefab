@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 375741945143182309}
   - component: {fileID: 4116387113990634462}
   - component: {fileID: 8620755999864561355}
+  - component: {fileID: 5674569605577164259}
   m_Layer: 0
   m_Name: Treasure 1 Chinese
   m_TagString: Untagged
@@ -214,6 +215,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5674569605577164259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375741945143182310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844724d28cd47554e816e209dc1e7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5341294511856323962
 GameObject:
   m_ObjectHideFlags: 0

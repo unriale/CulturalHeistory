@@ -13,6 +13,7 @@ public class Slot : MonoBehaviour
     private void Awake()
     {
         _leftAmount = transform.GetChild(1).GetComponent<Text>();
+        SetInitialTextAmount();
     }
 
     public void UpdateAmount(int amount, float delay)
@@ -35,7 +36,13 @@ public class Slot : MonoBehaviour
 
     public void SetInitialTextAmount()
     {
-        if (!_treasure) return;
+        if (!_treasure)
+        {
+            print("NOT A TRESURE");
+            return;
+        }
+        print(_treasure.maxAmount.ToString());
+
         _leftAmount.text = _treasure.maxAmount.ToString();
     }
 }

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxs: {fileID: 493623208691614526}
-  walkSpeed: 2
+  walkSpeed: 10
   runningSpeed: 6
   rotationSpeed: 2
   animator: {fileID: 261697141629915958}
