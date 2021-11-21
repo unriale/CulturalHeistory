@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
 
     public void PlayStealAnimation()
     {
-        // Set the animator here
+        animator.SetTrigger("steal");
     }
 
     protected virtual void Move()
