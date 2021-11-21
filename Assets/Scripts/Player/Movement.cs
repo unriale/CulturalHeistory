@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
     {
         Move();
         UpdatePosition();
-
+        if (!_sfxs) return;
         if (IsWalking)
         {
             _sfxs.PlayWalkCycle();

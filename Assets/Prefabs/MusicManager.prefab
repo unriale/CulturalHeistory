@@ -137,11 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4749202204691341942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af5a2500ffb123443835827a8a67a6b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e4d32d3c15922840a5142a4e87a9ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musics:
-  - {fileID: 8300000, guid: 0060b77e7b9ae1b418732c692d0732b9, type: 3}
-  - {fileID: 8300000, guid: e1076469469a5cf4d86ced4521eb2f53, type: 3}
-  - {fileID: 8300000, guid: 156c26121a9ee3f45a02f68621bafe58, type: 3}
-  - {fileID: 8300000, guid: df1c86cf99a40564e92ce8da10548e77, type: 3}
+  - {fileID: 8300000, guid: ea04f6199b4c5f445b008e3f77179510, type: 3}
+  - {fileID: 8300000, guid: fdf68fc51ccc0974c80d346f48cc057f, type: 3}
+  - {fileID: 8300000, guid: 8880ae27bbd85e644a0bb1be5e03f7fc, type: 3}
+  - {fileID: 8300000, guid: ae45577fd66ac4d4abe9767ffb212657, type: 3}
