@@ -7,6 +7,11 @@ TagManager:
   - FoN
   - Coin
   - TreasuresUI
+  - Slot1
+  - Slot2
+  - Slot3
+  - Slot4
+  - Slot5
   layers:
   - Default
   - TransparentFX

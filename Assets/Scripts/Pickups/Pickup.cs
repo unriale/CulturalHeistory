@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour
     [Tooltip("Time in seconds to delay destroy")]
     [SerializeField] float destroyDelay = 2f;
     [SerializeField] Treasure _treasure;
-    [SerializeField] Slot slot;
+    [SerializeField] string slotTag = "";
     public float PickupRadius = 2f;
 
     [Header("Cursor settings")]
@@ -33,7 +33,7 @@ public class Pickup : MonoBehaviour
     {
         _treasure.currentAmount = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        slot.SetInitialTextAmount();
+        GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().SetInitialTextAmount();
     }
 
     private void Update()
@@ -65,7 +65,7 @@ public class Pickup : MonoBehaviour
         isPickedUp = true;
         if (_treasure.currentAmount < _treasure.maxAmount) _treasure.currentAmount++;
         player.GetComponent<Movement>().DisableMovement();
-        slot.UpdateAmount(GetAmountLeft(), destroyDelay);
+        GameObject.FindGameObjectWithTag(slotTag).GetComponent<Slot>().UpdateAmount(GetAmountLeft(), destroyDelay);
         yield return new WaitForSeconds(destroyDelay);
         player.GetComponent<Movement>().EnableMovement();
         // TODO: VFX + SFX // You can't play a SFX here, the object will be destroyed soon after
