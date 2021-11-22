@@ -45,11 +45,11 @@ This is an example that shows you how the game looks like. In this scene the thi
 * Cristian: https://github.com/xPoke-glitch / https://pokedev.itch.io/
 
 **Animations**:
-* Jean-Ismael: https://jhamadene.itch.io/
+* Jean-Ismael: https://github.com/k4o7 / https://jhamadene.itch.io/
 
 **3D Modeling**:
-* Humanoid: https://humanoid-synth.itch.io/
-* Jean-Ismael: https://jhamadene.itch.io/
+* Humanoid: https://github.com/synth420 / https://humanoid-synth.itch.io/
+* Jean-Ismael: https://github.com/k4o7 / https://jhamadene.itch.io/
 
 **Music and SFX**:
 * Hara: https://gtohara.itch.io/
