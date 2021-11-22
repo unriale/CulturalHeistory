@@ -48,7 +48,7 @@ This is an example that shows you how the game looks like. In this scene the thi
 * Jean-Ismael: https://jhamadene.itch.io/
 
 **3D Modeling**:
-* Humanoid: <TBD>
+* Humanoid: https://humanoid-synth.itch.io/
 * Jean-Ismael: https://jhamadene.itch.io/
 
 **Music and SFX**:
