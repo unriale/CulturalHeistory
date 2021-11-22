@@ -34,7 +34,7 @@ The commands are really simple:
 
 ## Gameplay example
 
-This is an example that shows you how the game looks like. In this scene the thief is trynig to steal a treasure in the egyptian room! 
+This is an example that shows you how the game looks like. In this scene the thief is trying to steal a treasure in the egyptian room! 
 
 <img src="https://github.com/unriale/CulturalHeistory/blob/master/Screenshots/Gameplay.gif" width="750">
 
