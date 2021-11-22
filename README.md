@@ -32,3 +32,25 @@ The commands are really simple:
 * Hold left mouse button: Aim for the coin's throw
 * Release left mouse button: Throw the coin
 
+## Gameplay example
+
+This is an example that shows you how the game looks like. In this scene the thief is trynig to steal a treasure in the egyptian room! 
+
+<img src="https://github.com/unriale/CulturalHeistory/blob/master/Screenshots/Gameplay.gif" width="750">
+
+## Team Salty Coffea
+
+**Developers**:
+* Katerina: https://github.com/unriale / https://unriale.itch.io/
+* Cristian: https://github.com/xPoke-glitch / https://pokedev.itch.io/
+
+**Animations**:
+* Jean-Ismael: https://jhamadene.itch.io/
+
+**3D Modeling**:
+* Humanoid: <TBD>
+* Jean-Ismael: https://jhamadene.itch.io/
+
+**Music and SFX**:
+* Hara: https://gtohara.itch.io/
+* Joe Sam: <TBD>
