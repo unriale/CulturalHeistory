@@ -52,5 +52,5 @@ This is an example that shows you how the game looks like. In this scene the thi
 * Jean-Ismael: https://github.com/k4o7 / https://jhamadene.itch.io/
 
 **Music and SFX**:
-* Hara: https://gtohara.itch.io/
+* Louis-Victor O'Hara: https://gtohara.itch.io/
 * Joe Sam: https://www.samsound.it/
