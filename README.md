@@ -38,7 +38,7 @@ This is an example that shows you how the game looks like. In this scene the thi
 
 <img src="https://github.com/unriale/CulturalHeistory/blob/master/Screenshots/Gameplay.gif" width="750">
 
-We also have a short video showcase here: https://www.youtube.com/watch?v=ZmWJKuudpVo
+We also have a short showcase video here: https://www.youtube.com/watch?v=ZmWJKuudpVo
 
 ## Team Salty Coffea
 
