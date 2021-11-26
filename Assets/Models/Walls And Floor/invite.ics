@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REPLY
+BEGIN:VEVENT
+DTSTART:20211126T211500Z
+DTEND:20211126T220000Z
+DTSTAMP:20211126T204516Z
+ORGANIZER;CN=kateryna.kvasniak@gmail.com:mailto:kateryna.kvasniak@gmail.com
+UID:55eqh7adj1jbjdq8gv3d61utor@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=nathan
+ .lichtle@gmail.com;X-NUM-GUESTS=0:mailto:nathan.lichtle@gmail.com
+CREATED:20211126T204436Z
+DESCRIPTION:Grrrr\n\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:
+ ~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\nDo not edit this section of the descript
+ ion.\n\nThis event has a video call.\nJoin: https://meet.google.com/cod-ixw
+ t-hyz\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:
+ ~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20211126T204516Z
+LOCATION:online
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Sex
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
