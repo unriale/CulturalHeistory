@@ -90,7 +90,7 @@ public class Movement : MonoBehaviour
         StartMoving(horizontalInput, verticalInput);
     }
 
-    private void SetAnimation()
+    protected void SetAnimation()
     {
         animator.SetBool("walk", IsWalking);
         animator.SetBool("run", IsRunning);

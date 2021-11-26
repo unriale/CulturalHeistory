@@ -28,7 +28,7 @@ public class PlayerControllerMenu : Movement
 
         if (base.Walking()) base.ChangeStateToWalk();
         else { ChangeStateToStay(); }
-
+        SetAnimation();
         StartMoving(horizontalInput, verticalInput);
     }
 }
