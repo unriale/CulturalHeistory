@@ -85,9 +85,16 @@ public class Movement : MonoBehaviour
         else if (Walking()) ChangeStateToWalk();
         else { ChangeStateToStay(); }
 
+        SetAnimation();
+
         StartMoving(horizontalInput, verticalInput);
     }
 
+    private void SetAnimation()
+    {
+        animator.SetBool("walk", IsWalking);
+        animator.SetBool("run", IsRunning);
+    }
 
 
     protected void StartMoving(float horizontalInput, float verticalInput)
@@ -105,14 +112,12 @@ public class Movement : MonoBehaviour
 
     protected void ChangeStateToStay()
     {
-        animator.SetBool("walk", false);
         IsWalking = IsRunning = false;
         IsStaying = !IsWalking && !IsRunning;
     }
 
     protected void ChangeStateToWalk()
     {
-        animator.SetBool("walk", true);
         speed = walkSpeed;
         IsWalking = true;
         IsStaying = IsRunning = false;
