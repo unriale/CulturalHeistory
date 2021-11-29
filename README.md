@@ -36,7 +36,7 @@ The commands are really simple:
 
 This is an example that shows you how the game looks like. In this scene the thief is trying to steal a treasure in the egyptian room! 
 
-<img src="https://github.com/unriale/CulturalHeistory/blob/master/Screenshots/Gameplay.gif" width="750">
+<img src="https://github.com/unriale/CulturalHeistory/blob/master/Screenshots/GameplayNew.gif" width="750">
 
 We also have a short showcase video here: https://www.youtube.com/watch?v=ZmWJKuudpVo
 
