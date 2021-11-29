@@ -66,7 +66,7 @@ public class Throwing : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
         }
-    }
+    } 
 
     private void DrawAimInScene()
     {

@@ -70,8 +70,15 @@ public class Movement : MonoBehaviour
     public void EnableMovement() => _canMove = true;
     public void DisableMovement() => _canMove = false;
 
-    public void PlayStealAnimation()
+    public void PlayStealAnimation(Vector3 pickup, GameObject pickupObj)
     {
+        Vector3 initialVector = pickup - transform.position;
+        Vector3 rotated = Quaternion.AngleAxis(-90, Vector3.up) * initialVector;
+        Quaternion toRotation = Quaternion.LookRotation(rotated + transform.up);
+        Quaternion newRotation = new Quaternion(transform.rotation.x, toRotation.y, transform.rotation.z, transform.rotation.w);
+        transform.rotation = newRotation;
+
+        //transform.LookAt(pickup);
         animator.SetTrigger("steal");
     }
 

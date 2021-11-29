@@ -386,6 +386,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17775654}
   m_Mesh: {fileID: -3422930930146390456, guid: 4b0c2a3d9fc0dfd429d3e74ad17184ea, type: 3}
+--- !u!4 &18134210 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3099461268234786748, guid: bf3190427628d78448a24164db3bb928, type: 3}
+  m_PrefabInstance: {fileID: 1866998594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &45492228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1927499197161098, guid: 22d5920762e594f4e9de30162a07c2af, type: 3}
@@ -13744,6 +13749,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5965907761837448920, guid: bf3190427628d78448a24164db3bb928, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5965907762114108002, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13796,6 +13805,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5965907762114108029, guid: bf3190427628d78448a24164db3bb928, type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 18134210}
     - target: {fileID: 5965907762114108029, guid: bf3190427628d78448a24164db3bb928, type: 3}
       propertyPath: rotationSpeed
       value: 2
